@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/app/pagina-login/pagina-login.css">
+    
+    <title>Pagina de Login</title>
+</head>
+
+<body>
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo da marca"
+            style=" width: 160px; margin-left: 50px; margin-top: 0.2px;">
+
+        <nav>
+            <ul>
+                <li><a href="#"> casual</a></li>
+                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+            </ul>
+        </nav>
+        <button class="btn-login" onclick="login()"
+            style="margin-left: 200px; margin-right: -270px;">Login</button>
+        <div class="nav-right">
+            <img src="/public/images/carrinho.png" alt="imagem do carrinho de compras"
+                style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/lupa.png" alt="imagem da lupa"
+                style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/tres-pontos.png" alt="imagem tres pontos"
+                style="width: 20px; margin: 5px; margin-right: 30px;">
+        </div>
+    </header>
+
+    <main>
+        <div class="background-overlay"></div>
+        <h1>Acesse o seu login ou cadastre-se!</h1>
+
+        <div class="login-container">
+            <div class="form-section">
+                <form>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email">
+
+                    <label for="senha">Senha:</label>
+                    <input id="senha" name="senha" type="password">
+                    <a class="forgot-password" href="#" onclick="senha()">Esqueci minha senha</a>
+
+                    <button class="btn-entrar" type="submit" onclick="entrar(event)">Entrar</button>
+                    <button class="btn-criar-conta" type="button" onclick="criarConta()">Criar conta</button>
+                </form>
+            </div>
+
+            <div class="image-section">
+                <img src="/public/images/amanda-formulario-tela-login.jpg" alt="foto amanda formulario"
+                    style="height: 400px; width: 260px;">
+            </div>
+        </div>
+    </main>
+    <!--
+    <footer>
+        <div class="container">
+        @2025 Simons
+    </div>
+    </footer>
+    -->
+    <script src="/src/js/auth.js"></script>
+</body>
+
+</html>

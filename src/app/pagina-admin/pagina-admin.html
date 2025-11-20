@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/app/pagina-admin/pagina-admin.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+
+    <title>Pagina do Admin</title>
+</head>
+
+<body>
+
+    <!--  ----------------navegaçao---------------------- -->
+
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px; margin-top: 0.2px;">
+        <nav>
+            <ul>
+                <li><a href="#"> casual</a></li>
+                <li><a href="#">social</a></li>
+            </ul>
+        </nav>
+        <button class="btn-login" onclick="login()" style="margin-left: 200px; margin-right: -270px;">Login</button>
+        <div class="nav-right">
+            <img src="/public/images/carrinho.png" alt="imagem do carrinho de compras" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/lupa.png" alt="imagem da lupa" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/tres-pontos.png" alt="imagem tres pontos" style="width: 20px; margin: 5px; margin-right: 30px;">
+        </div>
+    </header>
+
+    <!-- -------------------amanda------------------------ -->
+
+    <main class="container">
+        <div class="container-principal">
+            <img class="amanda-principal" src="/public/images/amanda-admin.jpeg" alt="amanda pagina do admin">
+            <h1>É muito <br> bom te<br> ter de<br> volta aqui!</h1>
+        </div>
+
+        <!-- -----------------camisetas---------------------- -->
+
+        <div class="page-container">
+            <section class="camisetas">
+                <section class="secao-produtos">
+                    <h2>Camisetas</h2>
+
+                    <div class="grade-produtos">
+                        <div class="card-produto">
+                            <div class="imagem-container">
+                                <img src="/public/images/simons.png" alt="Camiseta Simons" style="width: 390px;">
+                            </div>
+                            <p class="nome-produto">Camiseta Simons</p>
+                            <p class="preco-produto">R$ 59,90</p>
+                        </div>
+
+                        <div class="card-produto">
+                            <div class="imagem-container">
+                                <img src="/public/images/simao.png" alt="Camiseta Simão">
+                            </div>
+                            <p class="nome-produto">Camiseta Simão</p>
+                            <p class="preco-produto">R$ 59,90</p>
+                        </div>
+
+                        <div class="card-produto">
+                            <div class="imagem-container">
+                                <img src="/public/images/amanda-pb.png" alt="Camiseta Amanda P&B">
+                            </div>
+                            <p class="nome-produto">Camiseta Amanda P&B</p>
+                            <p class="preco-produto">R$ 59,90</p>
+                        </div>
+                    </div>
+
+                    <div class="section-footer">
+                        <button class="btn-mostrar-todos" onclick="camisetasAdmin()">mostrar todos</button>
+                    </div>
+                </section>
+            </section>
+
+            <!-- -----------------social-------------------- -->
+
+            <section class="social">
+                <section class="secao-produtos">
+                    <h2>Social</h2>
+
+                    <div class="grade-produtos">
+                        <div class="card-produto">
+                            <div class="imagem-container">
+                                <img src="/public/images/social-bege.jpg" alt="amanda camisa social bege ">
+                            </div>
+                            <p class="nome-produto">Camisa Social Bege</p>
+                            <p class="preco-produto">R$ 59,90</p>
+                        </div>
+
+                        <div class="card-produto">
+                            <div class="imagem-container">
+                                <img src="/public/images/social-polo.jpg" alt="amanda camisa social polo">
+                            </div>
+                            <p class="nome-produto">Camiseta Polo</p>
+                            <p class="preco-produto">R$ 59,90</p>
+                        </div>
+
+                        <div class="card-produto">
+                            <div class="imagem-container">
+                                <img src="/public/images/social-azul.png" alt="amanda camisa social azul">
+                            </div>
+                            <p class="nome-produto">Camisa Social Azul</p>
+                            <p class="preco-produto">R$ 59,90</p>
+                        </div>
+                    </div>
+                    <div class="section-footer">
+                        <button class="btn-mostrar-todos" onclick="socialAdmin()">mostrar todos</button>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </main>
+
+    <!--
+
+    <footer>
+        <div class="container">
+        @2025 Simons
+    </div>
+    </footer>
+    -->
+    <script src="/src/js/auth.js"></script>
+<script>
+    function camisetasAdmin() {
+        window.location.href = "/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html";
+    }
+
+    function socialAdmin() {
+        // Se o nome do arquivo for pagina-social.html:
+        window.location.href = "/src/app/pagina-social/pagina-social.html";
+    }
+</script>
+</body>
+
+</html>

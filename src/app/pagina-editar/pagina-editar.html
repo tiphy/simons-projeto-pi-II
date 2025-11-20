@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto | Simons</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="/src/app/pagina-editar/pagina-editar.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+
+</head>
+<body>
+
+    <div class="cabecalho">
+        <header>
+            <img src="/public/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px;">
+            <nav>
+                <ul>
+                    <li><a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">camisetas</a></li>
+                    <li><a href="/src/app/pagina-social/pagina-social.html">social</a></li>
+                </ul>
+            </nav>
+            <div class="trio">
+                <button class="login" onclick="login()">Login</button>
+                <img class="img-cabecalho" src="/public/images/carrinho.png" alt="carrinho">
+                <img class="img-cabecalho" src="/public/images/lupa.png" alt="lupa">
+                <img class="img-cabecalho" src="/public/images/tres-pontos.png" alt="menu">
+            </div> 
+        </header>
+    </div>
+
+    <div class="header-titulo">
+        <h1>Editar produto</h1>
+        <div class="linha-separadora"></div>
+    </div>
+
+    <div class="container-edicao">
+        
+        <div class="area-imagem">
+            <div class="image-wrapper">
+                <img id="preview-imagem" src alt="Imagem do produto">
+            </div>
+            
+            <label class="btn-trocar-foto">
+                Trocar Foto
+                <input id="input-arquivo" type="file" accept="image/*" style="display: none;">
+            </label>
+            
+            <p style="font-size: 12px; color: #999; margin-top: 10px;">JPG ou PNG</p>
+        </div>
+
+        <div class="area-dados">
+            
+            <div style="display: flex; align-items: center;">
+                <input class="input-titulo" id="input-nome" type="text" placeholder="Nome do Produto">
+                <span style="font-size: 14px; color: #999;">&#9998;</span>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <span style="font-size: 18px; margin-right: 5px;">R$</span>
+                <input class="input-preco" id="input-preco" type="number" step="0.01" placeholder="0,00">
+                <span style="font-size: 14px; color: #999; margin-left: 5px;">&#9998;</span>
+            </div>
+
+            <textarea class="input-descricao" id="input-descricao" placeholder="Adicione uma descrição..."></textarea>
+            <span style="font-size: 14px; color: #999; text-align: right;">&#9998;</span>
+
+            <div class="secao-tamanhos">
+                <span class="label-pequeno">escolha seu tamanho:</span>
+                <div class="grade-tamanhos">
+                    <div class="box-tamanho">PP</div>
+                    <div class="box-tamanho">P</div>
+                    <div class="box-tamanho">M</div>
+                    <div class="box-tamanho">G</div>
+                    <div class="box-tamanho">GG</div>
+                    <div class="box-tamanho box-mais">+</div>
+                </div>
+            </div>
+
+            <button class="btn-salvar" onclick="salvarEdicao()">Salvar</button>
+            <button class="btn-deletar" onclick="deletarAtual()">Deletar produto</button>
+
+        </div>
+    </div>
+
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
+    <script>
+        const idEdicao = localStorage.getItem('produtoEditavelID');
+        let produtos = lerProdutos();
+        let produtoAtual = produtos.find(p => p.id == idEdicao);
+
+        // Elementos
+        const inputNome = document.getElementById('input-nome');
+        const inputPreco = document.getElementById('input-preco');
+        const imgPreview = document.getElementById('preview-imagem');
+        const inputArquivo = document.getElementById('input-arquivo');
+
+        // 1. Carregar dados
+        if (produtoAtual) {
+            inputNome.value = produtoAtual.nome;
+            inputPreco.value = produtoAtual.preco;
+            imgPreview.src = produtoAtual.imagem || "/public/images/simons.png";
+        } else {
+            window.location.href = "/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html";
+        }
+
+        // 2. Troca de Foto
+        inputArquivo.addEventListener('change', function(evento) {
+            const arquivo = evento.target.files[0];
+            if (arquivo) {
+                const leitor = new FileReader();
+                leitor.onload = function(e) {
+                    imgPreview.src = e.target.result;
+                }
+                leitor.readAsDataURL(arquivo);
+            }
+        });
+
+        // 3. Salvar
+        function salvarEdicao() {
+            if(!inputNome.value) { alert("Dê um nome ao produto"); return; }
+
+            produtoAtual.nome = inputNome.value;
+            produtoAtual.preco = parseFloat(inputPreco.value);
+            produtoAtual.imagem = imgPreview.src; 
+
+            const index = produtos.findIndex(p => p.id == idEdicao);
+            produtos[index] = produtoAtual;
+            salvarProdutos(produtos);
+
+            alert("Produto salvo!");
+            
+            // Redireciona
+            if (produtoAtual.categoria === 'social') {
+                window.location.href = "/src/app/pagina-social/pagina-social.html";
+            } else {
+                window.location.href = "/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html";
+            }
+        }
+
+        // 4. Deletar
+        function deletarAtual() {
+            deletarProduto(idEdicao);
+        }
+    </script>
+</body>
+</html>

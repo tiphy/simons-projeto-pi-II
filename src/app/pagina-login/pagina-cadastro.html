@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/app/pagina-login/pagina-login.css">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    
+    <title>Criar Conta | Simons</title>
+</head>
+
+<body>
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px; margin-top: 0.2px;">
+        <nav>
+            <ul>
+                <li><a href="#"> casual</a></li>
+                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+            </ul>
+        </nav>
+        <button class="btn-login" onclick="login()" style="margin-left: 200px; margin-right: -270px;">Login</button>
+        <div class="nav-right">
+            <img src="/public/images/carrinho.png" alt="carrinho" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/lupa.png" alt="lupa" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/tres-pontos.png" alt="opcoes" style="width: 20px; margin: 5px; margin-right: 30px;">
+        </div>
+    </header>
+
+    <main style="margin-top: -10px ;">
+        <div class="background-overlay"></div>
+        <h1>Crie sua conta na Simons!</h1>
+
+        <div class="login-container" style="height: 430px;">
+            <div class="form-section">
+                <form onsubmit="realizarCadastro(event)">
+                    <label for="email-cadastro">Email:</label>
+                    <input id="email-cadastro" type="email" required placeholder="exemplo@gmail.com">
+
+                    <label for="senha-cadastro">Senha:</label>
+                    <input id="senha-cadastro" type="password" required placeholder="******">
+
+                    <label for="confirma-senha">Confirmar Senha:</label>
+                    <input id="confirma-senha" type="password" required placeholder="******">
+
+                    <br>
+
+                    <button class="btn-entrar" type="submit">Cadastrar</button>
+                    
+                    <button class="btn-criar-conta" type="button" onclick="login()">Já tenho conta</button>
+                </form>
+            </div>
+
+            <div class="image-section">
+                <img src="/public/images/amanda-formulario-tela-login.jpg" alt="foto cadastro" style="height: 430px; width: 280px;">
+            </div>
+        </div>
+    </main>
+
+    <script src="/src/js/auth.js"></script>
+</body>
+</html>

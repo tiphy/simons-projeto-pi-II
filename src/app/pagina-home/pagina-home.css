@@ -1,0 +1,315 @@
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0px;
+    margin: -10px;
+
+    background-color: #f6f6f6;
+    /* opacity: 90%; */
+
+}
+
+
+.img-cabecalho {
+    width: 25px;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+
+    padding: 0px 32px;
+    padding-bottom: 10px;
+}
+
+a:hover {
+    color: #727272;
+    border-bottom: 2px solid #727272;
+}
+
+.trio {
+    display: inline-flex;
+    flex-direction: row;
+
+    width: 500px;
+    height: auto;
+    justify-content: right;
+
+    gap: 40px;
+    margin-right: 50px ;
+
+}
+
+.btn {
+    border: 0px;
+    background-color: rgba(255, 255, 255);
+
+    color: black;
+    font-weight: 600;
+
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.login {
+    margin-left: 450px;
+    
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 5px 25px;
+    background-color: white;
+    box-shadow: 0 4px 8px #7c7c7c;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+ 
+    
+    margin-left: 1100px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    background: #f6f6f6;
+    width: 100%;
+    position: fixed;
+    padding: 10px 50px;
+    top: 0;
+    z-index: 10;
+    justify-content: space-between;
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+    gap: 100px;
+    
+}
+
+header nav a {
+    text-transform: lowercase;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+.fotos-principal {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0px;
+    margin: 20px 0px;
+}
+
+.ftp {
+    /* width: 19.5%; */
+    width: 30%;
+    height: 750px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #7c7c7c;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0px 10px;
+}
+
+.ftp:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px #ffffff;
+}
+
+
+.title {
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+
+    margin: 70px 0px;
+    margin-left: 5%;
+
+
+}
+
+.camiseta-img {
+    width: 250px;
+    height: auto;
+
+    background-color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+    border-radius: 20px;
+
+    padding: 10px 30px;
+    margin-top: 15%;
+}
+
+.titulo-camiseta {
+    font-size: 16px;
+    color: #212121;
+
+    text-align: left;
+    margin-left: -2%;
+    margin-top: -0.5%;
+
+    font-family: Poppins, sans-serif;
+}
+
+.linha-camiseta {
+    display: flex;
+    flex-direction: row;
+
+    gap: 50px;
+    margin-top: 1%;
+    margin-bottom: 10%;
+    margin-left: 40%;
+
+    width: 300px;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.botao {
+    border: 1px solid #f6f6f6;
+    border-radius: 20px;
+    background-color: #f6f6f6;
+    box-shadow: 0 4px 8px #d9d9d9;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    color: black;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+
+    padding: 10px 20px;
+
+}
+
+.botao-a {
+    border: 1px solid #f6f6f6;
+    border-radius: 20px;
+    background-color: #f6f6f6;
+    box-shadow: 0 4px 8px #d9d9d9;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    color: black;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    text-align: center;
+
+    padding: 10px 10px;
+
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-left: -150px;
+}
+
+.central {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 50px;
+
+    margin: 0px 20px;
+    margin-right: -50px;
+    margin-top: -80px;
+}
+
+.secao-tres {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 100px;
+
+    background-color: #f6f6f6;
+
+}
+
+.fp {
+    width: 56%;
+    height: auto;
+    margin: 50px 0px;
+    margin-left: 300px;
+}
+
+.lateral-produto {
+    display: flex;
+    flex-direction: row;
+
+    margin-right: 50px;
+}
+
+.img-p {
+    background-color: #ffffff;
+    width: 300px;
+    height: 300px;
+    margin-top: 5%;
+    
+}
+
+.camiseta-tam {
+    width: 200px;
+    height: auto;
+
+    margin-left: 55px;
+
+}
+
+.textos {
+    width: 500px;
+
+    
+}
+
+.alinha-textos {
+    display: block;
+    flex-direction: column;
+
+    margin-left: 30px;
+    margin-top: 5%;
+
+    font-family: Poppins, sans-serif;
+}
+
+hr {
+    width: 70%;
+    margin-right: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    text-align: center;
+    background-color: #f6f6f6;
+
+    width: 100%;
+    padding: 100px 20px;
+    margin-top: 10%;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/app/pagina-social/pagina-social.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    <title>Pagina Social | Admin</title>
+    
+</head>
+
+<body>
+
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px; margin-top: 0.2px;">
+       
+        <nav>
+            <ul>
+                <li><a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">camisetas</a></li>
+                <li><a href="/src/app/pagina-social/pagina-social.html">social</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-login" style="margin-left: 200px; margin-right: -270px;" onclick="login()">Login</button>
+        <div class="nav-right">
+            <img src="/public/images/carrinho.png" alt="imagem do carrinho de compras" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/lupa.png" alt="imagem da lupa" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/images/tres-pontos.png" alt="imagem dos tres pontos" style="width: 20px; margin: 5px; margin-right: 30px;">
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container-principal">
+            <div class="img-container-principal" style="align-items: center;">
+                <img src="/public/images/social-azul-pag-social-amanda-f1.jpg" alt="primeira foto do carrossel">
+                <img src="/public/images/socail-azul-pag-social-f2.jpg" alt="segunda foto do carrossel">
+                <img src="/public/images/foto3-carrossel.jpg" alt="terceira foto do carrossel">
+            </div>
+
+            <div class="titulo">
+                <h2 class="titulo-secao">Social</h2>
+            </div>
+        </div>
+    </main>
+
+    <section class="produtos-grid" id="lista-social-dinamica" style="margin-top: 50px; padding-bottom: 100px;">
+        </section>
+
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
+    <script>
+        // --- LÓGICA PARA MANTER O TEU VISUAL ---
+
+        const container = document.getElementById('lista-social-dinamica');
+        
+        // Tenta ler os produtos. Se der erro, cria uma lista vazia para não travar.
+        let todosProdutos = [];
+        try {
+            todosProdutos = lerProdutos(); 
+        } catch (e) {
+            console.log("Iniciando banco de dados...");
+            inicializarBanco(); // Do gerenciador.js
+            todosProdutos = lerProdutos();
+        }
+
+        // Filtra apenas Social
+        const sociais = todosProdutos.filter(p => p.categoria === 'social');
+
+        container.innerHTML = ''; 
+
+
+        sociais.forEach(produto => {
+            let preco = parseFloat(produto.preco).toFixed(2);
+            
+//------------------ html dos cards ------------------- //
+            const cardHTML = `
+                <div class="produto-card">
+                    <div class="imagem-container">
+                        <img src="${produto.imagem}" alt="${produto.nome}">
+                    </div>
+                    <div class="produto-info" style="text-align: center; margin-top: 10px;">
+                        <p class="nome-produto">${produto.nome}</p>
+                        <p class="preco-produto">R$ ${preco}</p>
+                    </div>
+                    <div class="botoes-acao">
+                        <button class="btn-acao" onclick="irParaEdicao(${produto.id})"><span>&#9998;</span> Editar</button>
+                        <button class="btn-acao" onclick="deletarProduto(${produto.id})"><span>&#10006;</span> Excluir</button>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+
+//------------------ card adicionar prd ------------------- //
+
+        const cardAdicionar = `
+            <div style="display: flex; flex-direction: column; align-items: center; margin-left:50px">
+                <div class="adicionar-produto-card">
+                    <div class="imagem-placeholder">
+                        <img src="/public/images/simons.png" alt="Adicionar novo produto">
+                        <div class="icone-mais">+</div>
+                    </div>
+                </div>
+                <div class="separador" style="margin-top: 30px;"></div>
+                
+                <button class="btn-adicionar" style="margin-top: 20px;" onclick="criarNovoProduto('social')">
+                    Adicionar novo produto
+                </button>
+            </div>
+        `;
+        container.innerHTML += cardAdicionar;
+
+    </script>
+</body>
+</html>

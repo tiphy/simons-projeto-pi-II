@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    
+    <title>Camisetas | Admin</title>
+</head>
+<body>
+    <div class="cabecalho">
+        <header>
+            <img src="/public/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px;">
+
+            <nav>
+                <ul>
+                    <li><a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">camisetas</a></li>
+                    <li><a href="/src/app/pagina-social/pagina-social.html">social</a></li>
+                </ul>
+            </nav>
+
+            <div class="trio">
+                <button class="login" onclick="login()">Login</button>
+                <img class="img-cabecalho" src="/public/images/carrinho.png" alt="imagem do carrinho de compras">
+                <img class="img-cabecalho" src="/public/images/lupa.png" alt="imagem da lupa">
+                <img class="img-cabecalho" src="/public/images/tres-pontos.png" alt="imagem da lupa">
+            </div> 
+        </header>
+    </div>
+
+    <main class="secao-principal">
+        <div class="fotos-principal">
+            <img class="ftp" src="/public/images/amanda-oculos.jpg" alt>
+            <img class="ftp" src="/public/images/meio-amanda.jpg" alt>
+            <img class="ftp" src="/public/images/amanda-bolsa.jpg" alt>
+        </div>
+    </main>
+
+    <section>
+        <div class="title">
+            <h1>Bem-vindo de volta</h1>
+            <h4 style="font-weight: 200; margin-top: -15px; ">Área das Camisetas</h4>
+        </div>
+    </section>
+
+    <section>
+        <div class="central" id="lista-produtos" style="flex-wrap: wrap; justify-content: center; gap: 50px; margin-bottom: 50px;">
+            </div>
+    </section>
+
+    <footer> oi </footer>
+        
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
+    <script>
+        
+        const container = document.getElementById('lista-produtos');
+        
+        const todosProdutos = lerProdutos();
+
+        const camisetas = todosProdutos.filter(p => p.categoria === 'camiseta' || !p.categoria);
+
+        container.innerHTML = '';
+
+        camisetas.forEach(produto => {
+            const cardHTML = `
+                <div class="produto">
+                    <img class="camiseta-img" src="${produto.imagem}" alt="${produto.nome}">
+
+                    <div class="titulo-camiseta">
+                        <h3 style="font-weight: 500;">${produto.nome}</h3>
+                        <h4 style="font-weight: 100; margin-top: -15px;">R$ ${produto.preco.toFixed(2)}</h4>
+                    </div>
+
+                    <hr class="linha-camiseta">
+
+                    <button class="botao" style="background-color: #ffffff;" onclick="irParaEdicao(${produto.id})">Editar</button>
+                    <button class="botao-dois" style="background-color: #ffffff;" onclick="deletarProduto(${produto.id})">Excluir</button>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+
+
+        const cardAdicionar = `
+            <div class="produto">
+                <img style="width: 230px; opacity: 60%;" class="camiseta-img" src="/public/images/simons.png" alt="Novo Produto">
+                <br>
+                <br>
+                <hr class="linha-camiseta">
+                
+                <button class="botao" style="background-color: #ffffff;" onclick="criarNovoProduto('camiseta')">
+                    Adicionar novo produto
+                </button>
+            </div>
+        `;
+        container.innerHTML += cardAdicionar;
+
+    </script>
+</body>
+</html>
