@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/src/app/pagina-social-cliente/pagina-social-cliente.css">
+    <link rel="stylesheet" href="/src/app/pagina-social-cliente/pagina-social-cliente.css">
     <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
-    <title>Pagina Social</title>
-
+    <title>Social | Simons</title>
 </head>
 <body>
     <header>
         <img src="/public/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px; margin-top: 0.2px;">
         <nav>
             <ul>
-                <li><a href="/src/app/pagina-home/pagina-home.html">home</a></li>
+                <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
                 <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
             </ul>
         </nav>
@@ -25,93 +24,60 @@
         </div>   
     </header>
 
+    <main>
+        <div class="container-principal">
+            <div class="img-container-principal" style="align-items: center;">
+                <img src="/public/images/social-azul-pag-social-amanda-f1.jpg" alt="primeira foto do carrossel">
+                <img src="/public/images/socail-azul-pag-social-f2.jpg" alt="segunda foto do carrossel">
+                <img src="/public/images/foto3-carrossel.jpg" alt="terceira foto do carrossel">
+            </div>
 
-<main>
-    <div class="container-principal">
-        <div class="img-container-principal" style="align-items: center;">
-            <img src="/public/images/social-azul-pag-social-amanda-f1.jpg" alt="primeira foto do carrossel">
-            <img src="/public/images/socail-azul-pag-social-f2.jpg" alt="segunda foto do carrossel">
-            <img src="/public/images/foto3-carrossel.jpg" alt="terceira foto do carrossel">
+            <div class="titulo">
+                <h2 class="titulo-secao">Social</h2>
+            </div>
         </div>
+    </main>
 
-        <div class="titulo">
-            <h2 class="titulo-secao">Social</h2>
-        </div>
-    </div>
-</main>
+    <section class="grade-social" id="lista-produtos-dinamica">
+        </section>
 
-<section class="produtos-primeira-fila" style="margin-top: 50px; gap: 20px;">
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
 
-    <div class="produto-card">
-                <div class="imagem-container">
-                    <img src="/public/images/social-rosa-pag-social.jpg" alt="Camisa Social Pink">
-                </div>
-                <div class="produto-info">
-                     <p class="nome-produto">Camisa Social Pink</p>
-                     <p class="preco-produto">R$ 59,90</p>
-                </div>
-                <div class="botoes-acao">
-                    <button class="btn-acao" onclick="comprar()">Comprar</button>
-                </div>
-            </div>
+    <script>
+        const container = document.getElementById('lista-produtos-dinamica');
 
-            <div class="produto-card">
-                <div class="imagem-container">
-                    <img src="/public/images/social-bege.jpg" alt="Camisa Social Bege">
-                </div>
-                <div class="produto-info">
-                    <p class="nome-produto">Camisa Social Bege</p>
-                    <p class="preco-produto">R$ 59,90</p>
-                </div>
-                <div class="botoes-acao">
-                    <button class="btn-acao" onclick="comprar()">Comprar</button>
-                </div>
-            </div>
+        try { lerProdutos(); } catch (e) { inicializarBanco(); }
+        const todosProdutos = lerProdutos();
 
-            <div class="produto-card">
-                <div class="imagem-container">
-                    <img src="/public/images/polo-azul-pag-social.jpg" alt="Polo Azul">
-                </div>
-                <div class="produto-info">
-                    <p class="nome-produto">Polo Azul</p>
-                    <p class="preco-produto">R$ 59,90</p>
-                </div>
-                <div class="botoes-acao">
-                    <button class="btn-acao" onclick="comprar()">Comprar</button>
-                </div>
-            </div>
-</section>
+        // Filtra apenas categoria social
+        const sociais = todosProdutos.filter(p => p.categoria === 'social');
 
-<section class="produtos-segunda-fila" style="margin-top: 50px; gap: 20px; margin-bottom: 100px; justify-content: right;">
+        container.innerHTML = '';
 
-    <div class="produto-card" style="margin-left: 20px;">
-                <div class="imagem-container">
-                    <img src="/public/images/polo-rosa-pag-social.jpg" alt="Polo Rosa">
-                </div>
-                <div class="produto-info">
-                    <p class="nome-produto">Polo Pink</p>
-                    <p class="preco-produto">R$ 49,90</p>
-                </div>
-                <div class="botoes-acao">
-                    <button class="btn-acao" onclick="comprar()">Comprar</button>
-                </div>
-            </div>
+        sociais.forEach(produto => {
+            let preco = parseFloat(produto.preco).toFixed(2).replace('.', ',');
+            
+            const cardHTML = `
+                <div class="produto-card">
+                    <div class="imagem-container">
+                        <img src="${produto.imagem}" alt="${produto.nome}">
+                    </div>
+                    
+                    <div class="produto-info">
+                        <p class="nome-produto">${produto.nome}</p>
+                        <p class="preco-produto">R$ ${preco}</p>
+                    </div>
+                    
+                    <hr class="linha-card">
 
-            <div class="produto-card">
-                <div class="imagem-container">
-                    <img src="/public/images/socail-azul-pag-social-f2.jpg" alt="Camisa Social Azul">
+                    <div class="botoes-acao">
+                        <button class="btn-acao" onclick="verDetalhesProduto(${produto.id})">Comprar</button>
+                    </div>
                 </div>
-                <div class="produto-info">
-                    <p class="nome-produto">Camisa Social Azul</p>
-                    <p class="preco-produto">R$ 59,90</p>
-                </div>
-                <div class="botoes-acao">
-                    <button class="btn-acao" onclick="comprar()">Comprar</button>
-                </div>
-            </div>    
-
-</section>
-
-<script src="/src/js/auth.js"></script>
+            `;
+            container.innerHTML += cardHTML;
+        });
+    </script>
 </body>
 </html>

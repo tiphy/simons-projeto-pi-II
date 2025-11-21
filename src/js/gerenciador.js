@@ -57,3 +57,11 @@ function criarNovoProduto(categoriaRecebida) {
     irParaEdicao(novoId);
 }
 
+// 7. IR PARA A PÁGINA DE COMPRA (Jornada do Cliente)
+function verDetalhesProduto(id) {
+    // Guarda o ID do produto que o cliente clicou
+    localStorage.setItem('produtoSelecionadoID', id);
+    
+    // Redireciona para a página de detalhes/compra
+    window.location.href = "/src/app/pagina-compras/pagina-compras.html";
+}
