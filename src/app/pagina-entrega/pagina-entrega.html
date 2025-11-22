@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/app/pagina-entrega/pagina-entrega.css">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    <title>Entrega | Simons</title>
+</head>
+<body>
+
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo" style="width: 120px; margin-left: 50px; cursor: pointer;" onclick="window.location.href='/src/app/pagina-home/pagina-home.html'">
+        <nav>
+            <ul>
+                <li><a href="#">casual</a></li>
+                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+                <li><a href="#">moda praia</a></li>
+                <li><a href="#">acessórios</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <button class="btn-login-header" onclick="login()">login</button>
+            <div class="icons">
+                <img src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()" style="cursor: pointer;">
+                <img src="/public/images/lupa.png" alt="busca">
+                <img src="/public/images/tres-pontos.png" alt="menu">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Entrega</h1>
+                <span id="contador-itens-entrega">( Carregando... )</span>
+            </div>
+
+            <div class="progress-steps">
+                <div class="step finished">
+                    <div class="circle">1</div>
+                    <span>carrinho</span>
+                </div>
+                <div class="line solid"></div>
+                
+                <div class="step active">
+                    <div class="circle">2</div>
+                    <span>entrega</span>
+                </div>
+                <div class="line"></div>
+                
+                <div class="step">
+                    <div class="circle">3</div>
+                    <span>pagamento</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider-full">
+
+        <div class="delivery-grid">
+            
+            <div class="address-section">
+                <h2>Endereço de entrega:</h2>
+                <p class="label-cep">Busque pelo seu CEP</p>
+                
+                <div class="cep-group">
+                    <input type="text" placeholder="Digite seu CEP aqui">
+                    <button class="btn-dark-small">Aplicar</button>
+                </div>
+
+                <form class="form-address">
+                    <div class="form-row">
+                        <div class="input-box wide">
+                            <label>Endereço:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                        <div class="input-box narrow">
+                            <label>Número:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-box half">
+                            <label>Complemento: <span style="color:#ccc">Campo opcional</span></label>
+                            <input type="text" class="input-line">
+                        </div>
+                        <div class="input-box half">
+                            <label>Referência: <span style="color:#ccc">Campo opcional</span></label>
+                            <input type="text" class="input-line">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-box third">
+                            <label>Bairro:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                        <div class="input-box third">
+                            <label>Cidade:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                        <div class="input-box third">
+                            <label>Estado:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-box half">
+                            <label>Nome do destinatário:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                        <div class="input-box half">
+                            <label>Telefone:</label>
+                            <input type="text" class="input-line">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="summary-section">
+                <div class="summary-box">
+                    <h3>Resumo do pedido</h3>
+                    
+                    <div class="price-row">
+                        <span>Frete:</span>
+                        <span>R$ 9,90</span>
+                    </div>
+                    
+                    <div class="total-row">
+                        <span>Total:</span>
+                        <span id="preco-total-entrega">R$ 0,00</span>
+                    </div>
+                    
+                    <button class="btn-dark-full" onclick="irParaPagamento()">Comprar</button>
+                    <button class="btn-light-full" onclick="window.location.href='/src/app/pagina-camisetas/pagina-camisetas.html'">Adicionar mais produtos</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-review-section" id="lista-itens-resumo">
+            </div>
+
+    </main>
+
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarResumoEntrega();
+        });
+
+        function irParaPagamento() {
+            window.location.href = "/src/app/pagina-pagamento/pagina-pagamento.html";
+        }
+    </script>
+</body>
+</html>

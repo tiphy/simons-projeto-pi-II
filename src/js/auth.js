@@ -94,6 +94,11 @@ window.editarPrd = (id) => {
     window.location.href = '/src/app/pagina-editar/pagina-editar.html' 
 };
 
+// Adiciona isto no final do ficheiro simons/src/js/auth.js
+
+window.irParaCarrinho = () => { 
+    window.location.href = '/src/app/pagina-carrinho/pagina-carrinho.html'; 
+};
 
 // ================== CRUD (ADMIN) ==================
 

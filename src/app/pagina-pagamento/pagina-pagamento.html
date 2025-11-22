@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/app/pagina-pagamento/pagina-pagamento.css">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    <title>Pagamento | Simons</title>
+</head>
+<body>
+
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo" style="width: 120px; margin-left: 50px; cursor: pointer;" onclick="window.location.href='/src/app/pagina-home/pagina-home.html'">
+        <nav>
+            <ul>
+                <li><a href="#">casual</a></li>
+                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+                <li><a href="#">moda praia</a></li>
+                <li><a href="#">acessórios</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <button class="btn-login-header" onclick="login()">login</button>
+            <div class="icons">
+                <img src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()" style="cursor: pointer;">
+                <img src="/public/images/lupa.png" alt="busca">
+                <img src="/public/images/tres-pontos.png" alt="menu">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Pagamento</h1>
+                <span id="contador-itens-pagamento">( Carregando... )</span>
+            </div>
+
+            <div class="progress-steps">
+                <div class="step finished">
+                    <div class="circle">1</div>
+                    <span>carrinho</span>
+                </div>
+                <div class="line solid"></div>
+                
+                <div class="step finished">
+                    <div class="circle">2</div>
+                    <span>entrega</span>
+                </div>
+                <div class="line solid"></div>
+                
+                <div class="step active">
+                    <div class="circle">3</div>
+                    <span>pagamento</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider-full">
+
+        <div class="payment-grid">
+            
+            <div class="payment-methods-section">
+                <h2>Formas de pagamento</h2>
+                
+                <div class="payment-box">
+                    <div class="payment-tabs">
+                        <button class="tab-btn active" onclick="mudarPagamento('cartao')">
+                            <span class="icon-box"></span> Cartão de Crédito
+                        </button>
+                        <button class="tab-btn" onclick="mudarPagamento('pix')">
+                            <span class="icon-diamond">❖</span> Pix
+                        </button>
+                    </div>
+
+                    <div class="payment-content" id="form-cartao">
+                        <div class="card-visual"></div> <form class="form-card">
+                            <div class="input-row">
+                                <label>Número do cartão:</label>
+                                <input type="text" class="input-line" placeholder="">
+                            </div>
+
+                            <div class="input-row split">
+                                <div class="half">
+                                    <label>Validade:</label>
+                                    <input type="text" class="input-line" placeholder="">
+                                </div>
+                                <div class="half">
+                                    <label>CVV:</label>
+                                    <input type="text" class="input-line" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="input-row">
+                                <label>Nome impresso:</label>
+                                <input type="text" class="input-line" placeholder="">
+                            </div>
+
+                            <div class="input-row">
+                                <label>CPF:</label>
+                                <input type="text" class="input-line" placeholder="">
+                            </div>
+
+                            <div class="input-row">
+                                <label>Número de parcelas:</label>
+                                <input type="text" class="input-line" placeholder="">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="payment-content" id="form-pix" style="display: none; text-align: center; padding-top: 50px;">
+                        <p>O código Pix será gerado após finalizar a compra.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                
+                <div class="coupon-box">
+                    <h3>Aplicar cupom</h3>
+                    <div class="coupon-input-group">
+                        <input type="text" placeholder="Digite seu cupom aqui">
+                        <button>Aplicar</button>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <h3>Resumo do pedido</h3>
+                    
+                    <div class="price-row">
+                        <span>Frete:</span>
+                        <span>R$ 9,90</span>
+                    </div>
+                    
+                    <div class="total-row">
+                        <span>Total:</span>
+                        <span id="preco-total-pagamento">R$ 0,00</span>
+                    </div>
+                    
+                    <button class="btn-dark-full" onclick="finalizarCompra()">Finalizar compra</button>
+                    <button class="btn-light-full" onclick="window.location.href='/src/app/pagina-camisetas/pagina-camisetas.html'">Adicionar mais produtos</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-review-section" id="lista-itens-pagamento">
+            </div>
+
+    </main>
+
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarResumoPagamento();
+        });
+
+        function mudarPagamento(tipo) {
+            // Simples lógica visual para trocar abas
+            const formCartao = document.getElementById('form-cartao');
+            const formPix = document.getElementById('form-pix');
+            const btns = document.querySelectorAll('.tab-btn');
+
+            if (tipo === 'cartao') {
+                formCartao.style.display = 'block';
+                formPix.style.display = 'none';
+                btns[0].classList.add('active');
+                btns[1].classList.remove('active');
+            } else {
+                formCartao.style.display = 'none';
+                formPix.style.display = 'block';
+                btns[0].classList.remove('active');
+                btns[1].classList.add('active');
+            }
+        }
+
+        function finalizarCompra() {
+            // Limpa o carrinho e volta para a home
+            alert("Compra realizada com sucesso! Obrigado pela preferência.");
+            localStorage.removeItem('carrinhoSimons');
+            window.location.href = "/src/app/pagina-home/pagina-home.html";
+        }
+    </script>
+</body>
+</html>

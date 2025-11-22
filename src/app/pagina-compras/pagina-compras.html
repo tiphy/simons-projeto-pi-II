@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/app/pagina-compras/pagina-compras.css">
-    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    <link href="/src/app/pagina-compras/pagina-compras.css" rel="stylesheet">
+    <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
 
     <title>Detalhes do Produto</title>
 </head>
@@ -21,8 +21,8 @@
             </nav>
 
             <div class="trio">
-                <button onclick="login()" class="login">Login</button>
-                <img class="img-cabecalho" src="/public/images/carrinho.png" alt="imagem do carrinho de compras">
+                <button class="login" onclick="login()">Login</button>
+                <img class="img-cabecalho" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()" style="cursor: pointer;">
                 <img class="img-cabecalho" src="/public/images/lupa.png" alt="imagem da lupa">
                 <img class="img-cabecalho" src="/public/images/tres-pontos.png" alt="imagem da lupa">
             </div> 
@@ -33,9 +33,9 @@
         <div class="voltar-links">
             <div class="margem">
                 <ul>
-                    <li><a style="font-weight: 100;" href="/src/app/pagina-home/pagina-home.html">pagina inicial ></a></li>
-                    <li><a style="font-weight: 100;" href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas ></a></li>
-                    <li><a style="font-weight: 100;" href="#"> detalhes</a></li>
+                    <li><a href="/src/app/pagina-home/pagina-home.html" style="font-weight: 100;">pagina inicial ></a></li>
+                    <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html" style="font-weight: 100;">camisetas ></a></li>
+                    <li><a href="#" style="font-weight: 100;"> detalhes</a></li>
                 </ul>
             </div>
         </div>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="img-principal">
-             <img id="detalhe-imagem" class="camiseta" src="" alt="imagem do produto">
+             <img class="camiseta" id="detalhe-imagem" src alt="imagem do produto">
         </div>
 
         <div class="textos-primeiros">
@@ -91,8 +91,8 @@
         </div>
 
         <div>
-            <button onclick="pagamento()" class="botoes" style="background-color: #e6fadd; box-shadow: 0 4px 8px #c8ddbf;">Comprar</button>
-            <button onclick="carrinho()" class="botoes">Adicionar ao carrinho</button>
+            <button class="botoes" onclick="pagamento()" style="background-color: #e6fadd; box-shadow: 0 4px 8px #c8ddbf;">Comprar</button>
+            <button class="botoes" onclick="carrinho()">Adicionar ao carrinho</button>
         </div>
 
     </section>
@@ -114,17 +114,17 @@
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 59,90</h4>
                 </div>
                 <hr class="linha-camiseta">
-                <button onclick="carrinho()" class="botao">Adicionar ao carrinho</button>
+                <button class="botao" onclick="carrinho()">Adicionar ao carrinho</button>
             </div>
             
             <div class="produto">
-                <img style="width: 230px;" class="camiseta-img" src="/public/images/amanda-pb.png" alt="camiseta pb">
+                <img class="camiseta-img" src="/public/images/amanda-pb.png" alt="camiseta pb" style="width: 230px;">
                 <div class="titulo-camiseta">
                     <h3 style="font-weight: 500; ">Camiseta Gêmeas</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 59,90</h4>
                 </div>
                 <hr class="linha-camiseta">
-                <button onclick="carrinho()" class="botao">Adicionar ao carrinho</button>
+                <button class="botao" onclick="carrinho()">Adicionar ao carrinho</button>
             </div>
         </div>
     </section>
@@ -134,44 +134,62 @@
     <script src="/src/js/gerenciador.js"></script>
     <script src="/src/js/auth.js"></script>
 
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
     <script>
         // 1. Recuperar o ID do produto que o cliente clicou
         const idSelecionado = localStorage.getItem('produtoSelecionadoID');
         const produtos = lerProdutos();
         
-        // 2. Encontrar o produto na lista
+        // Variável global para guardar o produto que está na tela
+        let produtoAtual = null;
+
+        // 2. Encontrar o produto na lista e preencher a tela
         const produto = produtos.find(p => p.id == idSelecionado);
 
-        // 3. Se encontrou, preencher a página
         if (produto) {
-            // Imagem Principal
+            produtoAtual = produto; // <--- IMPORTANTE: Guarda o produto aqui!
+            
+            // Preenche as informações visuais
             const imgPrincipal = document.getElementById('detalhe-imagem');
-            imgPrincipal.src = produto.imagem;
+            if(imgPrincipal) imgPrincipal.src = produto.imagem;
             
-            // Imagens pequenas (opcional: atualiza todas para a mesma)
-            const miniaturas = document.querySelectorAll('.img-camiseta, .camiseta-cores');
-            miniaturas.forEach(img => img.src = produto.imagem);
+            document.querySelectorAll('.img-camiseta, .camiseta-cores').forEach(img => img.src = produto.imagem);
+            
+            const tituloTopo = document.getElementById('detalhe-titulo-topo');
+            if(tituloTopo) tituloTopo.innerText = produto.nome;
 
-            // Textos
-            document.getElementById('detalhe-titulo-topo').innerText = produto.nome;
-            document.getElementById('detalhe-nome').innerText = produto.nome;
+            const tituloNome = document.getElementById('detalhe-nome');
+            if(tituloNome) tituloNome.innerText = produto.nome;
             
-            // Preço
             let precoFormatado = parseFloat(produto.preco).toFixed(2).replace('.', ',');
-            document.getElementById('detalhe-preco').innerText = "R$ " + precoFormatado;
+            const detalhePreco = document.getElementById('detalhe-preco');
+            if(detalhePreco) detalhePreco.innerText = "R$ " + precoFormatado;
 
-            // Título da aba
             document.title = produto.nome + " | Simons";
         } else {
+            // Se não achar o produto, volta para a loja
             window.location.href = "/src/app/pagina-camisetas/pagina-camisetas.html";
         }
 
-        function pagamento() {
-            alert("Redirecionando para o checkout... (Simulação)");
-        }
-        
+        // --- FUNÇÕES DOS BOTÕES (AQUI ESTÁ A CORREÇÃO) ---
+
         function carrinho() {
-            alert("Produto adicionado ao carrinho!");
+            if (produtoAtual) {
+                // Chama a função do gerenciador.js que salva no banco
+                adicionarAoCarrinho(produtoAtual);
+            } else {
+                alert("Erro: Produto não carregado corretamente.");
+            }
+        }
+
+        function pagamento() {
+            if (produtoAtual) {
+                adicionarAoCarrinho(produtoAtual);
+                // Redireciona para o carrinho
+                window.location.href = "/src/app/pagina-carrinho/pagina-carrinho.html";
+            }
         }
     </script>
 </body>

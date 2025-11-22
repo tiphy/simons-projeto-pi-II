@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/app/pagina-carrinho/pagina-carrinho.css">
+    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    <title>Carrinho | Simons</title>
+</head>
+<body>
+
+    <header>
+        <img src="/public/images/simons-logo.png" alt="logo" style="width: 120px; margin-left: 50px; cursor: pointer;" onclick="window.location.href='/src/app/pagina-home/pagina-home.html'">
+        
+        <nav>
+            <ul>
+                <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
+                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <button class="btn-login-header" onclick="login()">login</button>
+            <div class="icons">
+                <img src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()" style="cursor: pointer;">
+                <img src="/public/images/lupa.png" alt="busca">
+                <img src="/public/images/tres-pontos.png" alt="menu">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Carrinho</h1>
+                <span id="contador-itens"></span>
+            </div>
+
+            <div class="progress-steps">
+                <div class="step active">
+                    <div class="circle">1</div>
+                    <span>carrinho</span>
+                </div>
+                <div class="line"></div>
+                <div class="step">
+                    <div class="circle">2</div>
+                    <span>entrega</span>
+                </div>
+                <div class="line"></div>
+                <div class="step">
+                    <div class="circle">3</div>
+                    <span>pagamento</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider-full">
+
+        <div class="cart-grid">
+            
+            <div class="cart-items-section" id="lista-carrinho-dinamica">
+                <p>A carregar o carrinho...</p>
+            </div>
+
+            <div class="cart-summary-section" id="resumo-carrinho-box">
+                
+                <div class="summary-box">
+                    <h3>Calcular frete e prazo</h3>
+                    <div class="input-group">
+                        <input type="text" placeholder="Digite seu CEP aqui">
+                        <button class="btn-dark-small">Calcular</button>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <h3>Resumo do pedido</h3>
+                    <div class="total-row">
+                        <span>Total:</span>
+                        <span id="preco-total-carrinho">R$ 0,00</span>
+                    </div>
+                    
+                    <button class="btn-dark-full" onclick="irParaEntrega()">Comprar</button>
+                    <button class="btn-light-full" onclick="window.location.href='/src/app/pagina-camisetas/pagina-camisetas.html'">Adicionar mais produtos</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <hr class="divider-full">
+            <h2 class="rec-title">Você também pode gostar</h2>
+            
+            <section class="grade-sugestoes" id="lista-sugestoes">
+                </section>
+        </div>
+
+    </main>
+
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+
+    <script>
+        // Ao carregar a página, desenha o carrinho e as sugestões
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarCarrinhoNaTela();
+            carregarSugestoes();
+        });
+
+        function irParaEntrega() {
+    window.location.href = "/src/app/pagina-entrega/pagina-entrega.html";
+}
+    </script>
+</body>
+</html>
