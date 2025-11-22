@@ -70,9 +70,9 @@ function adicionarAoCarrinho(produto) {
 
 function removerDoCarrinho(index) {
     let carrinho = JSON.parse(localStorage.getItem('carrinhoSimons')) || [];
-    carrinho.splice(index, 1); 
+    carrinho.splice(index, 1);
     localStorage.setItem('carrinhoSimons', JSON.stringify(carrinho));
-    location.reload(); 
+    location.reload();
 }
 
 // Desenha a página do CARRINHO
@@ -82,10 +82,10 @@ function carregarCarrinhoNaTela() {
     const labelTotal = document.getElementById('preco-total-carrinho');
     const resumoBox = document.getElementById('resumo-carrinho-box');
 
-    if (!container) return; 
+    if (!container) return;
 
     let carrinho = JSON.parse(localStorage.getItem('carrinhoSimons')) || [];
-    
+
     if (carrinho.length === 0) {
         container.innerHTML = `
             <div style="text-align: center; padding: 40px; color: #666; width: 100%;">
@@ -96,12 +96,12 @@ function carregarCarrinhoNaTela() {
                 </button>
             </div>
         `;
-        if(resumoBox) resumoBox.style.display = 'none';
-        if(contador) contador.innerText = `{ 0 Itens }`;
+        if (resumoBox) resumoBox.style.display = 'none';
+        if (contador) contador.innerText = `{ 0 Itens }`;
         return;
     }
 
-    if(resumoBox) resumoBox.style.display = 'block';
+    if (resumoBox) resumoBox.style.display = 'block';
     container.innerHTML = '';
     let total = 0;
 
@@ -129,8 +129,8 @@ function carregarCarrinhoNaTela() {
         container.innerHTML += htmlItem;
     });
 
-    if(contador) contador.innerText = `{ ${carrinho.length} Itens }`;
-    if(labelTotal) labelTotal.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    if (contador) contador.innerText = `{ ${carrinho.length} Itens }`;
+    if (labelTotal) labelTotal.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
 function carregarSugestoes() {
@@ -138,7 +138,7 @@ function carregarSugestoes() {
     if (!container) return;
 
     const produtos = lerProdutos();
-    const sugestoes = produtos.slice(0, 3); 
+    const sugestoes = produtos.slice(0, 3);
 
     container.innerHTML = '';
     sugestoes.forEach(p => {
@@ -202,8 +202,8 @@ function carregarResumoEntrega() {
 
     let totalFinal = subtotal + frete;
 
-    if(contador) contador.innerText = `( ${carrinho.length} Item${carrinho.length !== 1 ? 's' : ''} )`;
-    if(labelTotal) labelTotal.innerText = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
+    if (contador) contador.innerText = `( ${carrinho.length} Item${carrinho.length !== 1 ? 's' : ''} )`;
+    if (labelTotal) labelTotal.innerText = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
 }
 
 
@@ -250,6 +250,36 @@ function carregarResumoPagamento() {
 
     let totalFinal = subtotal + frete;
 
-    if(contador) contador.innerText = `( ${carrinho.length} Item${carrinho.length !== 1 ? 's' : ''} )`;
-    if(labelTotal) labelTotal.innerText = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
+    if (contador) contador.innerText = `( ${carrinho.length} Item${carrinho.length !== 1 ? 's' : ''} )`;
+    if (labelTotal) labelTotal.innerText = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
 }
+
+
+
+function alternarBusca() {
+    const input = document.getElementById('input-busca');
+    const container = document.querySelector('.container-busca');
+
+    // Alterna a classe 'ativo' no input
+    input.classList.toggle('ativo');
+
+    // Alterna classe no container para efeitos extras (opcional)
+    container.classList.toggle('aberto');
+
+    // Se abriu, coloca o foco no input para digitar logo
+    if (input.classList.contains('ativo')) {
+        input.focus();
+    } else {
+        input.value = ''; // Limpa se fechar (opcional)
+    }
+}
+
+// (Opcional) Adicionar evento para pesquisar ao apertar "Enter"
+document.getElementById('input-busca').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        const termo = this.value.toLowerCase();
+        alert(`Você pesquisou por: ${termo}`);
+        // Aqui você pode chamar sua função de filtro futuramente
+        // Exemplo: filtrarProdutos(termo);
+    }
+});

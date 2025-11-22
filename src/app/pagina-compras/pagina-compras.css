@@ -34,6 +34,121 @@ a:hover {
     border-bottom: 2px solid #727272;
 }
 
+
+/* --- AJUSTES GERAIS DO HEADER --- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Mantém Logo na esq, Menu no centro, Login/Ícones na dir */
+    background: #f6f6f6;
+    width: 100%;
+    position: fixed;
+    padding: 10px 50px;
+    top: 0;
+    z-index: 100;
+}
+
+/* --- NAV (Menu Central) --- */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    /* Ajuste o espaço entre "camisetas" e "social" */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- LADO DIREITO (Login + Ícones) --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Espaço entre o botão Login e os ícones */
+}
+
+/* Botão de Login (Estilo Limpo) */
+.login-btn {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 8px 25px;
+    background-color: white;
+    box-shadow: 0 4px 8px #dcdcdc;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px #bfbfbf;
+}
+
+/* Container dos ícones */
+.icons-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-img {
+    width: 22px;
+    height: auto;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-img:hover {
+    opacity: 0.7;
+}
+
+/* --- A MÁGICA DA BARRA DE PESQUISA --- */
+.search-box {
+    background: transparent;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+.search-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #333;
+    font-size: 14px;
+    transition: 0.4s;
+    width: 0px;
+    /* Começa fechado */
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid transparent;
+    /* Linha invisível inicialmente */
+}
+
+/* Efeito ao passar o mouse ou focar na caixa */
+.search-box:hover .search-txt,
+.search-txt:focus {
+    width: 200px;
+    /* Abre a barra */
+    padding: 0 10px;
+    border-bottom: 1px solid #333;
+    /* Aparece a linha preta sutil */
+}
+
+
+
 .trio {
     display: inline-flex;
     flex-direction: row;
@@ -43,7 +158,7 @@ a:hover {
     justify-content: right;
 
     gap: 40px;
-    margin-right: 50px ;
+    margin-right: 50px;
 
 }
 
@@ -61,7 +176,7 @@ a:hover {
 
 .login {
     margin-left: 450px;
-    
+
     border: 2px solid rgb(255, 255, 255);
     border-radius: 20px;
     padding: 5px 25px;
@@ -69,12 +184,12 @@ a:hover {
     box-shadow: 0 4px 8px #7c7c7c;
     transition: transform 0.3s, box-shadow 0.3s;
 
- 
-    
+
+
     margin-left: 1100px;
 }
 
-header{
+header {
     display: flex;
     align-items: center;
     background: #f6f6f6;
@@ -86,11 +201,11 @@ header{
     justify-content: space-between;
 }
 
-header nav ul{
+header nav ul {
     list-style: none;
     display: flex;
     gap: 100px;
-    
+
 }
 
 header nav a {
@@ -102,9 +217,9 @@ header nav a {
 .img-canto {
     display: flex;
     flex-direction: column;
-    
+
     margin-top: -100px;
- 
+
 }
 
 .img-camiseta {
@@ -113,7 +228,7 @@ header nav a {
 
     margin-left: 60px;
     margin-top: 150px;
-    margin-bottom: -8.5% ;
+    margin-bottom: -8.5%;
 
     border: 1px solid #f6f6f6;
     padding: 30px;
@@ -160,7 +275,7 @@ header nav a {
     gap: 15px;
     margin-top: 20px;
 
- 
+
 }
 
 .camiseta-cores {
@@ -175,11 +290,11 @@ header nav a {
     background-color: #f6f6f6;
 
     position: relative;
-    left: 61.1% ;
+    left: 61.1%;
     bottom: 165px;
 }
 
-.textos-secundarios{
+.textos-secundarios {
     display: flex;
     flex-direction: column;
 
@@ -202,11 +317,11 @@ header nav a {
     width: 10%;
 
     position: relative;
-    left: 60.5% ;
+    left: 60.5%;
     bottom: 10px;
 
     font-family: 'Poppins', sans-serif;
-    
+
 }
 
 .fundo-tamanho {
@@ -220,7 +335,7 @@ header nav a {
 .botoes {
     display: flex;
     flex-direction: row;
-    
+
     align-items: center;
     justify-content: center;
 
@@ -231,7 +346,7 @@ header nav a {
     width: 25%;
 
     position: relative;
-    left: 62.5% ;
+    left: 62.5%;
     bottom: -20px;
 
     font-family: 'Poppins', sans-serif;
@@ -271,7 +386,8 @@ hr {
     margin: 0px 0px 0px 130px;
 }
 
-.voltar-links li, ul {
+.voltar-links li,
+ul {
     display: flex;
     flex-direction: row;
 
@@ -382,7 +498,7 @@ hr {
     margin: 0px 20px;
 }
 
-footer{
+footer {
     text-align: center;
     background-color: #f6f6f6;
 
@@ -390,8 +506,3 @@ footer{
     padding: 100px 20px;
     margin-top: 10%;
 }
-
-
-
-
-

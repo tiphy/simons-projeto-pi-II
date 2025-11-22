@@ -49,6 +49,126 @@ header nav a {
     padding: 5px 0;
 }
 
+
+
+
+/* --- AJUSTES GERAIS DO HEADER --- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Mantém Logo na esq, Menu no centro, Login/Ícones na dir */
+    background: #f6f6f6;
+    width: 100%;
+    position: fixed;
+    padding: 10px 50px;
+    top: 0;
+    z-index: 100;
+}
+
+/* --- NAV (Menu Central) --- */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    /* Ajuste o espaço entre "camisetas" e "social" */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- LADO DIREITO (Login + Ícones) --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Espaço entre o botão Login e os ícones */
+}
+
+/* Botão de Login (Estilo Limpo) */
+.login-btn {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 8px 25px;
+    background-color: white;
+    box-shadow: 0 4px 8px #dcdcdc;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px #bfbfbf;
+}
+
+/* Container dos ícones */
+.icons-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-img {
+    width: 22px;
+    height: auto;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-img:hover {
+    opacity: 0.7;
+}
+
+/* --- A MÁGICA DA BARRA DE PESQUISA --- */
+.search-box {
+    background: transparent;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+.search-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #333;
+    font-size: 14px;
+    transition: 0.4s;
+    width: 0px;
+    /* Começa fechado */
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid transparent;
+    /* Linha invisível inicialmente */
+}
+
+/* Efeito ao passar o mouse ou focar na caixa */
+.search-box:hover .search-txt,
+.search-txt:focus {
+    width: 200px;
+    /* Abre a barra */
+    padding: 0 10px;
+    border-bottom: 1px solid #333;
+    /* Aparece a linha preta sutil */
+}
+
+
+
+
+
+
 .right-nav {
     display: flex;
     align-items: center;
@@ -138,12 +258,13 @@ main .container-principal {
 
 .grade-social {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
-    margin: 50px auto 100px auto; 
+    margin: 50px auto 100px auto;
     padding: 0 20px;
 }
+
 /* --------------- ESTILOS DOS CARDS --------------- */
 
 .produto-card {
@@ -151,7 +272,7 @@ main .container-principal {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    background-color: white; 
+    background-color: white;
 }
 
 .imagem-container {
@@ -163,7 +284,7 @@ main .container-principal {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0; 
+    border-radius: 0;
 }
 
 .produto-card img {
@@ -179,14 +300,14 @@ main .container-principal {
 
 
 .produto-info {
-    text-align: left; 
+    text-align: left;
     width: 100%;
-    padding-left: 5px; 
+    padding-left: 5px;
 }
 
 .nome-produto {
     font-size: 16px;
-    font-weight: 400; 
+    font-weight: 400;
     margin-bottom: 5px;
     color: #000;
 }
@@ -199,17 +320,17 @@ main .container-principal {
 
 
 .linha-card {
-    width: 95%; 
+    width: 95%;
     border: 0;
-    border-top: 1px solid #e0e0e0; 
-    margin: 10px 0 20px 0; 
-    align-self: flex-start; 
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0 20px 0;
+    align-self: flex-start;
     margin-left: 5px;
 }
 
 .botoes-acao {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     width: 100%;
     padding-left: 5px;
     margin-bottom: 20px;
@@ -250,9 +371,9 @@ main .container-principal {
     }
 
     .btn-login {
-        margin: 0; 
+        margin: 0;
     }
-    
+
     .nav-right {
         margin: 0;
         justify-content: center;
@@ -267,11 +388,9 @@ main .container-principal {
     .img-container-principal {
         flex-direction: column;
     }
-    
+
     .container-principal img {
         width: 90%;
         height: auto;
     }
 }
-
-

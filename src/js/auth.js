@@ -1,7 +1,6 @@
 const API_URL = 'http://localhost:5500/produtos';
 
 // ================== LÓGICA DE LOGIN ==================
-// Arquivo: /src/js/auth.js
 
 // 1. Função para ir para a página de login
 function login() {
@@ -15,69 +14,61 @@ function criarConta() {
 
 // 3. FUNÇÃO DE CADASTRO (Nova!)
 function realizarCadastro(event) {
-    event.preventDefault(); // Não deixa a página recarregar
+    event.preventDefault();
 
     const email = document.getElementById('email-cadastro').value;
     const senha = document.getElementById('senha-cadastro').value;
     const confirmaSenha = document.getElementById('confirma-senha').value;
 
-    // Validação: Senhas conferem?
     if (senha !== confirmaSenha) {
         alert("As senhas não coincidem!");
         return;
     }
 
-    // Pega a lista de usuários que já existe (ou cria uma vazia)
     let listaUsuarios = JSON.parse(localStorage.getItem('usuariosSimons')) || [];
 
-    // Validação: Email já existe?
+
     const usuarioExiste = listaUsuarios.find(u => u.email === email);
     if (usuarioExiste) {
         alert("Este email já está cadastrado!");
         return;
     }
 
-    // Cria o novo usuário
     const novoUsuario = {
         email: email,
         senha: senha
     };
 
-    // Adiciona na lista e salva no navegador
     listaUsuarios.push(novoUsuario);
     localStorage.setItem('usuariosSimons', JSON.stringify(listaUsuarios));
-    login(); // Redireciona para a tela de login
+    login();
 }
 
-// 4. FUNÇÃO DE LOGIN (Atualizada para ler os cadastros)
+// 4. FUNÇÃO DE LOGIN 
 function entrar(event) {
     event.preventDefault();
 
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
-    // Verifica se é o ADMIN (Regra Fixa)
+
     if (email === "admin@gmail.com" && senha === "admin123") {
         window.location.href = "/src/app/pagina-admin/pagina-admin.html";
         return;
     }
 
-    // Se não for admin, procura na lista de usuários cadastrados
     let listaUsuarios = JSON.parse(localStorage.getItem('usuariosSimons')) || [];
-    
-    // Procura um usuário que tenha ESSE email E ESSA senha
     const usuarioEncontrado = listaUsuarios.find(u => u.email === email && u.senha === senha);
 
     if (usuarioEncontrado) {
         alert("Login realizado com sucesso!");
-        // Redireciona para a Home (Página do Cliente)
         window.location.href = "/src/app/pagina-home/pagina-home.html";
     } else {
         alert("Email ou senha incorretos!");
     }
 }
 
-// Funções auxiliares
+// -------- btn esqueci a senha ---------
 function senha() {
     alert("Funcionalidade de recuperar senha em desenvolvimento!");
 }
@@ -88,32 +79,32 @@ window.camisetas = () => { window.location.href = '/src/app/pagina-camisetas/pag
 window.socialCliente = () => { window.location.href = '/src/app/pagina-social-cliente/pagina-social-cliente.html' };
 window.socialAdmin = () => { window.location.href = '/src/app/pagina-social/pagina-social.html' };
 window.camisetasAdmin = () => { window.location.href = '/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html' };
-window.editarPrd = (id) => { 
-    // Salva o ID no navegador para saber qual editar na outra página
+window.editarPrd = (id) => {
+
     localStorage.setItem('idProdutoEditar', id);
-    window.location.href = '/src/app/pagina-editar/pagina-editar.html' 
+    window.location.href = '/src/app/pagina-editar/pagina-editar.html'
 };
 
-// Adiciona isto no final do ficheiro simons/src/js/auth.js
 
-window.irParaCarrinho = () => { 
-    window.location.href = '/src/app/pagina-carrinho/pagina-carrinho.html'; 
+
+window.irParaCarrinho = () => {
+    window.location.href = '/src/app/pagina-carrinho/pagina-carrinho.html';
 };
 
 // ================== CRUD (ADMIN) ==================
 
-// Função para carregar produtos na tela de admin
+
 async function carregarProdutosAdmin(categoriaContainer) {
-    // Verifica se existe o container na página antes de tentar carregar
+
     const container = document.getElementById('lista-produtos-dinamica');
-    
-    if (!container) return; // Se não estiver na página certa, não faz nada
+
+    if (!container) return;
 
     try {
         const response = await fetch(API_URL);
         const produtos = await response.json();
 
-        container.innerHTML = ''; // Limpa o HTML atual
+        container.innerHTML = '';
 
         produtos.forEach(produto => {
             const html = `
@@ -140,10 +131,10 @@ async function carregarProdutosAdmin(categoriaContainer) {
 
 // Função para Deletar
 window.deletarProduto = async (id) => {
-    if(confirm("Tem certeza que deseja excluir este produto?")) {
+    if (confirm("Tem certeza que deseja excluir este produto?")) {
         await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
         alert("Produto excluído!");
-        location.reload(); // Recarrega a página para atualizar a lista
+        location.reload();
     }
 };
 

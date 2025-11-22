@@ -3,33 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/app/pagina-pagamento/pagina-pagamento.css">
-    <link rel="shortcut icon" href="/public/images/as-logo.png" type="image/x-icon">
+    <link href="/src/app/pagina-pagamento/pagina-pagamento.css" rel="stylesheet">
+    <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
     <title>Pagamento | Simons</title>
 </head>
 <body>
 
     <header>
-        <img src="/public/images/simons-logo.png" alt="logo" style="width: 120px; margin-left: 50px; cursor: pointer;" onclick="window.location.href='/src/app/pagina-home/pagina-home.html'">
-        <nav>
-            <ul>
-                <li><a href="#">casual</a></li>
-                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
-                <li><a href="#">moda praia</a></li>
-                <li><a href="#">acessórios</a></li>
-            </ul>
-        </nav>
-        <div class="header-right">
-            <button class="btn-login-header" onclick="login()">login</button>
-            <div class="icons">
-                <img src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()" style="cursor: pointer;">
-                <img src="/public/images/lupa.png" alt="busca">
-                <img src="/public/images/tres-pontos.png" alt="menu">
-            </div>
-        </div>
-    </header>
+    <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
 
-    <main class="main-container">
+    <nav>
+        <ul>
+            <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
+            <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-right">
+        <button class="login-btn" onclick="login()">Login</button>
+
+        <div class="icons-container">
+            <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+            
+            <div class="search-box">
+                <input class="search-txt" type="text" placeholder="Buscar...">
+                <button class="search-btn">
+                    <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
+                </button>
+            </div>
+
+            <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
+        </div>
+    </div>
+</header>
+
+    <main class="main-container" style="margin-top: 50px;">
         
         <div class="top-bar">
             <div class="page-title">
@@ -78,33 +86,33 @@
                         <div class="card-visual"></div> <form class="form-card">
                             <div class="input-row">
                                 <label>Número do cartão:</label>
-                                <input type="text" class="input-line" placeholder="">
+                                <input class="input-line" type="text" placeholder>
                             </div>
 
                             <div class="input-row split">
                                 <div class="half">
                                     <label>Validade:</label>
-                                    <input type="text" class="input-line" placeholder="">
+                                    <input class="input-line" type="text" placeholder>
                                 </div>
                                 <div class="half">
                                     <label>CVV:</label>
-                                    <input type="text" class="input-line" placeholder="">
+                                    <input class="input-line" type="text" placeholder>
                                 </div>
                             </div>
 
                             <div class="input-row">
                                 <label>Nome impresso:</label>
-                                <input type="text" class="input-line" placeholder="">
+                                <input class="input-line" type="text" placeholder>
                             </div>
 
                             <div class="input-row">
                                 <label>CPF:</label>
-                                <input type="text" class="input-line" placeholder="">
+                                <input class="input-line" type="text" placeholder>
                             </div>
 
                             <div class="input-row">
                                 <label>Número de parcelas:</label>
-                                <input type="text" class="input-line" placeholder="">
+                                <input class="input-line" type="text" placeholder>
                             </div>
                         </form>
                     </div>
