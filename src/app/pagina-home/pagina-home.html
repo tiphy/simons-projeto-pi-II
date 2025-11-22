@@ -5,76 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/app/pagina-home/pagina-home.css" rel="stylesheet">
     <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
-
     <title>Simons</title>
 </head>
 <body>
-        <div class="cabecalho">
+    <div class="cabecalho">
+        <header>
+            <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
 
-    <header>
-    <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
+            <nav>
+                <ul>
+                    <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
+                    <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+                </ul>
+            </nav>
 
-    <nav>
-        <ul>
-            <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
-            <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
-        </ul>
-    </nav>
+            <div class="header-right">
+                <button class="login-btn" onclick="login()">Login</button>
 
-    <div class="header-right">
-        <button class="login-btn" onclick="login()">Login</button>
+                <div class="icons-container" style="margin-right: 20px;">
+                    <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+                    
+                    <div class="container-busca">
+                        <input type="text" id="input-busca" class="campo-busca" placeholder="Buscar...">
+                        <img class="icon-img" src="/public/images/lupa.png" alt="lupa" onclick="alternarBusca()" style="cursor: pointer;">
+                    </div>
 
-        <div class="icons-container" style="margin-right: 20px;">
-            <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
-            
-            <div class="search-box">
-                <input class="search-txt" type="text" placeholder="Buscar...">
-                <button class="search-btn">
-                    <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
-                </button>
+                    <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu" onclick="abrirMenu()">
+                </div>
             </div>
-
-            <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
-        </div>
+        </header>
     </div>
-</header>
-
-
-        <!-- <header>
-                <nav>
-                    <img class="logo" src="/public/assets/images/simons-logo.png" alt="">
-
-                        <div class="links">
-                            <a href="/src/pages/pagina-home/index.html">Início</a>
-                            <a href="/src/pages/pagina-social/index.html">Social</a>
-
-
-                            <div class="login">
-                                <button class="btn" href="/src/pages/pagina-login/index.html" >Login</button>
-                            </div>
-
-                        </div>
-
-                        <div class="trio"> 
-                            <img src="/public/assets/images/lupa.png" alt="lupa de busca">
-                            <img src="/public/assets/images/carrinho.png" alt="carrinho">
-                            <img src="/public/assets/images/tres-pontos.png" alt="trés pontinhos">
-                        </div>  
-                </nav>
-        </header> -->
-</div>
 
     <main class="secao-principal">
         <div class="fotos-principal">
             <img class="ftp" src="/public/images/WhatsApp Image 2025-10-05 at 21.55.21.jpeg" alt>
             <img class="ftp" src="/public/images/WhatsApp Image 2025-10-05 at 21.58.34.jpeg" alt style="width: 40%;">
             <img class="ftp" src="/public/images/WhatsApp Image 2025-10-05 at 21.55.20.jpeg" alt>
-            <!-- <img class="ftp" src="/public/assets/images/amanda-meiojpeg.jpeg" alt="">
-            <img class="ftp" src="/public/assets/images/amanda-direita.jpeg" alt=""> -->
         </div>
     </main>
-
-<!-------------- TITULO -------------->
 
     <section>
         <div class="title">
@@ -82,131 +50,77 @@
         </div>
     </section>
 
-<!-------------- SECAO DOIS -------------->
-
     <section>
-
         <div class="central">
-
             <div class="produto">
-
                 <img class="camiseta-img" src="/public/images/simons.png" alt="camiseta gemeas">
-
                 <div class="titulo-camiseta">
                     <h3 style="font-weight: 500; ">Camiseta Simons</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 59,90</h4>
                 </div>
-
                 <hr class="linha-camiseta">
-
-   
-
             </div>
 
             <div class="produto">
-
                 <img class="camiseta-img" src="/public/images/puxado.png" alt="camiseta gemeas" style="width: 250px; margin-top: 133px;">
-
                 <div class="titulo-camiseta">
                     <h3 style="font-weight: 500; ">Camiseta Puxado</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 59,90</h4>
                 </div>
-
                 <hr class="linha-camiseta">
-
                 <button class="botao" onclick="camisetas()" style="width: 300px; margin-left: 30%;">Mostrar todos</button>
-
             </div>
 
             <div class="produto">
-
                 <img class="camiseta-img" src="/public/images/vem-de-coracao.png" alt="camiseta gemeas">
-
                 <div class="titulo-camiseta">
                     <h3 style="font-weight: 500; ">Camiseta Coração</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 59,90</h4>
                 </div>
-
                 <hr class="linha-camiseta">
-
-
-
             </div>
-
         </div>
-
-    
     </section>
 
-<!-------------- SECAO TRES -------------->
-
     <section>
-
         <div class="secao-tres">
-
             <div class="foto-principal">
                 <img class="fp" src="/public/images/amanda-puxado.png" alt>
-
             </div>
 
             <div class="lateral">
+                <div class="lateral-produto">
+                    <div class="img-p">
+                        <img class="camiseta-tam" src="/public/images/simons.png" alt>
+                    </div>
+                    <div class="alinha-textos">
+                        <div class="textos">
+                            <h3 style="font-weight: 400; font-size: 20px; ">Camiseta Simons</h3>
+                            <h4 style="font-weight: 100; margin-top: -15px; ">R$ 59,90</h4>
+                        </div>
+                        <hr>
+                        <p style="width: 300px; font-size: 17px; font-weight: 100; ">Camiseta feminina estampada confeccionada em malha de algodão com toque macio. A peça básica possui modelagem reta com caimento solto, mangas curtas e acabamento pespontado.</p>
+                        <button class="botao" onclick="verDetalhesProduto(5)">Comprar</button>
+                    </div>
+                </div>
 
                 <div class="lateral-produto">
-
                     <div class="img-p">
                         <img class="camiseta-tam" src="/public/images/amanda-pb.png" alt>
-
                     </div>
-
                     <div class="alinha-textos">
-
                         <div class="textos">
                             <h3 style="font-weight: 400; font-size: 20px; ">Camiseta Amanda P&B</h3>
                             <h4 style="font-weight: 100; margin-top: -15px; ">R$ 59,90</h4>
                         </div>
-
                         <hr>
-
                         <p style="width: 300px; font-size: 17px; font-weight: 100; ">Camiseta feminina estampada confeccionada em malha de algodão com toque macio. A peça básica possui modelagem reta com caimento solto, mangas curtas e acabamento pespontado.</p>
-
-                        <button class="botao" onclick="comprar()">Comprar</button>
-
+                        <button class="botao" onclick="verDetalhesProduto(6)">Comprar</button>
                     </div>
-
                 </div>
-
-                <div class="lateral-produto">
-
-                    <div class="img-p">
-                        <img class="camiseta-tam" src="/public/images/amanda-pb.png" alt>
-
-                    </div>
-
-                    <div class="alinha-textos">
-
-                        <div class="textos">
-                            <h3 style="font-weight: 400; font-size: 20px; ">Camiseta Amanda P&B</h3>
-                            <h4 style="font-weight: 100; margin-top: -15px; ">R$ 59,90</h4>
-                        </div>
-
-                        <hr>
-
-                        <p style="width: 300px; font-size: 17px; font-weight: 100; ">Camiseta feminina estampada confeccionada em malha de algodão com toque macio. A peça básica possui modelagem reta com caimento solto, mangas curtas e acabamento pespontado.</p>
-
-                        <button class="botao" onclick="comprar()">Comprar</button>
-
-                    </div>
-
-                </div>
-
             </div>
-
         </div>
-
     </section>
-
-
-<!-------------- SECAO QUATRO -------------->
 
     <section>
         <div class="title">
@@ -214,132 +128,98 @@
         </div>
     </section>
 
-<!-------------- SECAO QUINTA -------------->
-
-     <section>
-
+    <section>
         <div class="central" style="margin-top: -10%;">
-
             <div class="produto">
-
                 <img class="camiseta-img" src="/public/images/camisa-bege.png" alt="camiseta gemeas" style="width: 300px; margin-top: 130px;  margin-left: 150px; padding: 20px 30px; border-radius: 10px;">
-
                 <div class="titulo-camiseta">
                     <h3 style="font-weight: 500; ">Camiseta Social Bege</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 159,90</h4>
                 </div>
-
                 <hr class="linha-camiseta" style="margin-left: 70%; width: 65%; margin-top: 1%;">
-
-   
-
             </div>
 
             <div class="produto">
-
                 <img class="camiseta-img" src="/public/images/polo.png" alt="camiseta gemeas" style="width: 300px; margin-top: 173px; margin-left: 150px; padding: 20px 30px; border-radius: 10px;">
-
                 <div class="titulo-camiseta" style="margin-left: -16%; margin-bottom: 8px;">
                     <h3 style="font-weight: 500; ">Camisa Polo</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 99,90</h4>
                 </div>
-
                 <hr class="linha-camiseta" style="margin-left: 70%; width: 65%; margin-top: -1%;">
-
                 <button class="botao" onclick="socialCliente()" style="width: 300px; margin-left: 30%;">Mostrar todos</button>
-
             </div>
 
             <div class="produto">
-
                 <img class="camiseta-img" src="/public/images/camisa-azul.png" alt="camiseta gemeas" style="width: 300px; margin-top: 135px;  margin-left: 150px; padding: 20px 30px; border-radius: 10px;">
-
                 <div class="titulo-camiseta" style="margin-left: -5%">
                     <h3 style="font-weight: 500; ">Camisa Social Blue</h3>
                     <h4 style="font-weight: 100; margin-top: -15px;">R$ 189,90</h4>
                 </div>
-
                 <hr class="linha-camiseta" style="margin-left: 70%; width: 65%;">
-
-
-
             </div>
-
         </div>
-
     </section>
 
-<!-------------- SECAO SEXTA -------------->
-
     <section>
-
         <div class="secao-tres">
-
             <div class="foto-principal">
                 <img class="fp" src="/public/images/IMG-20250812-WA0029.jpg" alt style="width: 56%;">
-
             </div>
 
             <div class="lateral">
-
                 <div class="lateral-produto" style="margin-top: 30px;">
-
                     <div class="img-p">
                         <img class="camiseta-tam" src="/public/images/Screenshot 2025-10-05 at 23.10.13.png" alt style=" margin: 20px 15px; width: 90%; ">
-
                     </div>
-
                     <div class="alinha-textos">
-
                         <div class="textos">
                             <h3 style="font-weight: 400; font-size: 20px; ">Camisa Social Bege</h3>
                             <h4 style="font-weight: 100; margin-top: -15px; ">R$ 169,90</h4>
                         </div>
-
                         <hr>
-
                         <p style="width: 300px; font-size: 17px; font-weight: 100; ">Camisa de modelagem reta em tricoline leve, com ombros levemente deslocados, colarinho clássico e punhos estruturados. Traz listras em amarelo manteiga, roxo lavanda e off-white, Confortável e atemporal.</p>
-
-                        <button class="botao" onclick="comprar()">Comprar</button>
-
+                        <button class="botao" onclick="verDetalhesProduto(2)">Comprar</button>
                     </div>
-
                 </div>
 
                 <div class="lateral-produto">
-
                     <div class="img-p">
                         <img class="camiseta-tam" src="/public/images/Screenshot 2025-10-05 at 23.11.16.png" alt style=" margin: 20px 15px; width: 90%; ">
-
                     </div>
-
                     <div class="alinha-textos">
-
                         <div class="textos">
                             <h3 style="font-weight: 400; font-size: 20px; ">Camisa Social Pink</h3>
                             <h4 style="font-weight: 100; margin-top: -15px; ">R$ 199,90</h4>
                         </div>
-
                         <hr>
-
                         <p style="width: 300px; font-size: 17px; font-weight: 100; ">Camisa clássica em tricoline italiano rosa com modelagem levemente ajustada. Um ícone atemporal que traz feminilidade e sofisticação para qualquer composição.</p>
-
-                        <button class="botao" onclick="comprar()">Comprar</button>
-
+                        <button class="botao" onclick="verDetalhesProduto(8)">Comprar</button>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
+    <footer>oi</footer>
+
+    <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
+    <div id="sidebar-menu" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+        </div>
+        <div class="sidebar-content">
+            <a href="/src/app/pagina-home/pagina-home.html">Início</a>
+            <a href="/src/app/pagina-camisetas/pagina-camisetas.html">Camisetas</a>
+            <a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">Social</a>
+            <a href="/src/app/pagina-carrinho/pagina-carrinho.html">Meu Carrinho</a>
+            <hr> 
+            <a href="/src/app/pagina-login/pagina-login.html">Minha Conta</a>
+            <a href="#" onclick="alert('Em breve!')">Ajuda</a>
+        </div>
+    </div>
+
     <script src="/src/js/auth.js"></script>
-
-    <footer> oi </footer>
-    
-
+    <script src="/src/js/gerenciador.js"></script> 
 </body>
 </html>

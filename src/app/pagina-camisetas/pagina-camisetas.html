@@ -5,38 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/app/pagina-camisetas/pagina-camisetas.css" rel="stylesheet">
     <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
-
     <title>Camisetas | Simons</title>
 </head>
 <body>
     <div class="cabecalho">
         <header>
-    <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
+            <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
 
-    <nav>
-        <ul>
-            <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
-            <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
-        </ul>
-    </nav>
+            <nav>
+                <ul>
+                    <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
+                    <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+                </ul>
+            </nav>
 
-    <div class="header-right">
-        <button class="login-btn" onclick="login()">Login</button>
+            <div class="header-right">
+                <button class="login-btn" onclick="login()">Login</button>
 
-        <div class="icons-container">
-            <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
-            
-            <div class="search-box">
-                <input class="search-txt" type="text" placeholder="Buscar...">
-                <button class="search-btn">
-                    <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
-                </button>
+                <div class="icons-container">
+                    <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+                    
+                    <div class="search-box">
+                        <input class="search-txt" type="text" placeholder="Buscar...">
+                        <button class="search-btn">
+                            <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
+                        </button>
+                    </div>
+
+                    <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu" onclick="abrirMenu()">
+                </div>
             </div>
-
-            <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
-        </div>
-    </div>
-</header>
+        </header>
     </div>
 
     <main class="secao-principal">
@@ -60,47 +59,52 @@
 
     <footer> oi </footer>
 
+    <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
+    <div id="sidebar-menu" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+        </div>
+        
+        <div class="sidebar-content">
+            <a href="/src/app/pagina-home/pagina-home.html">Início</a>
+            <a href="/src/app/pagina-camisetas/pagina-camisetas.html">Camisetas</a>
+            <a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">Social</a>
+            <a href="/src/app/pagina-carrinho/pagina-carrinho.html">Meu Carrinho</a>
+            <hr> 
+            <a href="/src/app/pagina-login/pagina-login.html">Minha Conta</a>
+            <a href="#" onclick="alert('Em breve!')">Ajuda</a>
+        </div>
+    </div>
+
     <script src="/src/js/auth.js"></script>
     <script src="/src/js/gerenciador.js"></script>
 
     <script>
-        // 1. Selecionar o local onde os produtos vão entrar
+        // Seu script de carregar produtos continua aqui normalmente...
         const containerCliente = document.getElementById('lista-camisetas-cliente');
-        
-        // 2. Ler os produtos do banco de dados
-        try {
-            lerProdutos(); 
-        } catch (e) {
-            inicializarBanco();
-        }
+        try { lerProdutos(); } catch (e) { inicializarBanco(); }
         const todosProdutos = lerProdutos();
-
-        // 3. Filtrar apenas camisetas
         const camisetas = todosProdutos.filter(p => p.categoria === 'camiseta' || !p.categoria);
-
-        // 4. Limpar o container e desenhar cada produto
         containerCliente.innerHTML = '';
 
         camisetas.forEach(produto => {
-            // Formatamos o preço
             let precoFormatado = parseFloat(produto.preco).toFixed(2).replace('.', ',');
-
             const cardHTML = `
                 <div class="produto">
                     <img class="camiseta-img" src="${produto.imagem}" alt="${produto.nome}">
-
                     <div class="titulo-camiseta">
                         <h3 style="font-weight: 500;">${produto.nome}</h3>
                         <h4 style="font-weight: 100; margin-top: -15px;">R$ ${precoFormatado}</h4>
                     </div>
-
                     <hr class="linha-camiseta">
-
                     <button onclick="verDetalhesProduto(${produto.id})" class="botao">Comprar</button>
                 </div>
             `;
             containerCliente.innerHTML += cardHTML;
         });
     </script>
+
+
 </body>
 </html>

@@ -627,3 +627,104 @@ input[type="password"] {
         /* Espaço extra no mobile */
     }
 }
+
+
+/* --- FUNDO ESCURO (OVERLAY) --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
+    z-index: 150; /* Fica acima do site, mas abaixo do menu */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease; /* Suavidade ao aparecer */
+}
+
+/* Quando ativo via JS */
+.menu-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- MENU LATERAL (SIDEBAR) --- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Começa ESCONDIDO pra fora da tela na direita */
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 200; /* Fica acima de tudo */
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Animação elegante */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Quando ativo via JS */
+.sidebar-menu.aberto {
+    right: 0; /* Desliza para dentro da tela */
+}
+
+/* Cabeçalho do Menu */
+.sidebar-header {
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Botão X de fechar */
+.btn-fechar {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    transition: 0.2s;
+    line-height: 20px;
+}
+
+.btn-fechar:hover {
+    color: #ff4d4d; /* Vermelho suave ao passar o mouse */
+}
+
+/* Links do Menu */
+.sidebar-content {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-content a {
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    transition: 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-content a:hover {
+    background-color: #f6f6f6;
+    border-left: 4px solid #333; /* Detalhe visual na esquerda */
+    color: #000;
+}
+
+.sidebar-content hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 10px 30px;
+    width: auto;
+}

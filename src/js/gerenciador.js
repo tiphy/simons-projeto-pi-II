@@ -283,3 +283,28 @@ document.getElementById('input-busca').addEventListener('keypress', function (e)
         // Exemplo: filtrarProdutos(termo);
     }
 });
+
+
+// Função para abrir o menu
+function abrirMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('overlay-menu');
+    
+    sidebar.classList.add('aberto');
+    overlay.classList.add('ativo');
+    
+    // Impede a rolagem da página de fundo enquanto o menu está aberto
+    document.body.style.overflow = 'hidden';
+}
+
+// Função para fechar o menu
+function fecharMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('overlay-menu');
+    
+    sidebar.classList.remove('aberto');
+    overlay.classList.remove('ativo');
+    
+    // Volta a permitir a rolagem da página
+    document.body.style.overflow = 'auto';
+}

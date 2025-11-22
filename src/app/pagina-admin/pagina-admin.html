@@ -6,45 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/app/pagina-admin/pagina-admin.css" rel="stylesheet">
     <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
-
-    <title>Pagina do Admin</title>
+    <title>Página do Admin</title>
 </head>
 
 <body>
 
-    <!--  ----------------navegaçao---------------------- -->
-
     <header>
-        <img src="/public/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px; margin-top: 0.2px;">
+        <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
+
         <nav>
             <ul>
-                <li><a href="#"> casual</a></li>
-                <li><a href="#">social</a></li>
+                <li><a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">camisetas</a></li>
+                <li><a href="/src/app/pagina-social/pagina-social.html">social</a></li>
             </ul>
         </nav>
-        <button class="btn-login" onclick="login()" style="margin-left: 200px; margin-right: -270px;">Login</button>
-        <div class="nav-right">
-            <img src="/public/images/carrinho.png" alt="imagem do carrinho de compras" style="width: 20px; margin: 5px; margin-right: 30px;">
-            <img src="/public/images/lupa.png" alt="imagem da lupa" style="width: 20px; margin: 5px; margin-right: 30px;">
-            <img src="/public/images/tres-pontos.png" alt="imagem tres pontos" style="width: 20px; margin: 5px; margin-right: 30px;">
+
+        <div class="header-right">
+            <button class="login-btn" onclick="login()">Sair</button>
+
+            <div class="icons-container">
+                <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+                
+                <div class="search-box">
+                    <input class="search-txt" id="input-busca" type="text" placeholder="Buscar...">
+                    <button class="search-btn">
+                        <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
+                    </button>
+                </div>
+
+                <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu" onclick="abrirMenu()">
+            </div>
         </div>
     </header>
 
-    <!-- -------------------amanda------------------------ -->
-
-    <main class="container">
+    <main class="container" style="margin-top: -15px;">
         <div class="container-principal">
             <img class="amanda-principal" src="/public/images/amanda-admin.jpeg" alt="amanda pagina do admin">
             <h1>É muito <br> bom te<br> ter de<br> volta aqui!</h1>
         </div>
 
-        <!-- -----------------camisetas---------------------- -->
-
         <div class="page-container">
             <section class="camisetas">
                 <section class="secao-produtos">
                     <h2>Camisetas</h2>
-
                     <div class="grade-produtos">
                         <div class="card-produto">
                             <div class="imagem-container">
@@ -53,7 +57,6 @@
                             <p class="nome-produto">Camiseta Simons</p>
                             <p class="preco-produto">R$ 59,90</p>
                         </div>
-
                         <div class="card-produto">
                             <div class="imagem-container">
                                 <img src="/public/images/simao.png" alt="Camiseta Simão">
@@ -61,7 +64,6 @@
                             <p class="nome-produto">Camiseta Simão</p>
                             <p class="preco-produto">R$ 59,90</p>
                         </div>
-
                         <div class="card-produto">
                             <div class="imagem-container">
                                 <img src="/public/images/amanda-pb.png" alt="Camiseta Amanda P&B">
@@ -70,19 +72,15 @@
                             <p class="preco-produto">R$ 59,90</p>
                         </div>
                     </div>
-
                     <div class="section-footer">
-                        <button class="btn-mostrar-todos" onclick="camisetasAdmin()">mostrar todos</button>
+                        <button class="btn-mostrar-todos" onclick="camisetasAdmin()">Editar Camisetas</button>
                     </div>
                 </section>
             </section>
 
-            <!-- -----------------social-------------------- -->
-
             <section class="social">
                 <section class="secao-produtos">
                     <h2>Social</h2>
-
                     <div class="grade-produtos">
                         <div class="card-produto">
                             <div class="imagem-container">
@@ -91,7 +89,6 @@
                             <p class="nome-produto">Camisa Social Bege</p>
                             <p class="preco-produto">R$ 59,90</p>
                         </div>
-
                         <div class="card-produto">
                             <div class="imagem-container">
                                 <img src="/public/images/social-polo.jpg" alt="amanda camisa social polo">
@@ -99,7 +96,6 @@
                             <p class="nome-produto">Camiseta Polo</p>
                             <p class="preco-produto">R$ 59,90</p>
                         </div>
-
                         <div class="card-produto">
                             <div class="imagem-container">
                                 <img src="/public/images/social-azul.png" alt="amanda camisa social azul">
@@ -109,33 +105,39 @@
                         </div>
                     </div>
                     <div class="section-footer">
-                        <button class="btn-mostrar-todos" onclick="socialAdmin()">mostrar todos</button>
+                        <button class="btn-mostrar-todos" onclick="socialAdmin()">Editar Social</button>
                     </div>
                 </section>
             </section>
-
         </div>
     </main>
 
-    <!--
-
-    <footer>
-        <div class="container">
-        @2025 Simons
+    <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
+    <div id="sidebar-menu" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+        </div>
+        <div class="sidebar-content">
+            <a href="/src/app/pagina-home/pagina-home.html">Sair para Loja</a>
+            <a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">Gerenciar Camisetas</a>
+            <a href="/src/app/pagina-social/pagina-social.html">Gerenciar Social</a>
+            <hr>
+            <a href="#" onclick="alert('Configurações em breve')">Configurações</a>
+        </div>
     </div>
-    </footer>
-    -->
+
     <script src="/src/js/auth.js"></script>
-<script>
-    function camisetasAdmin() {
-        window.location.href = "/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html";
-    }
+    <script src="/src/js/gerenciador.js"></script> 
 
-    function socialAdmin() {
-        // Se o nome do arquivo for pagina-social.html:
-        window.location.href = "/src/app/pagina-social/pagina-social.html";
-    }
-</script>
+    <script>
+        function camisetasAdmin() {
+            window.location.href = "/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html";
+        }
+
+        function socialAdmin() {
+            window.location.href = "/src/app/pagina-social/pagina-social.html";
+        }
+    </script>
 </body>
-
 </html>

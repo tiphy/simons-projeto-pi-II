@@ -7,38 +7,37 @@
     <link href="/src/app/pagina-social/pagina-social.css" rel="stylesheet">
     <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
     <title>Pagina Social | Admin</title>
-    
 </head>
 
 <body>
 
     <header>
-    <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
+        <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
 
-    <nav>
-        <ul>
-            <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
-            <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">camisetas</a></li>
+                <li><a href="/src/app/pagina-social/pagina-social.html">social</a></li>
+            </ul>
+        </nav>
 
-    <div class="header-right">
-        <button class="login-btn" onclick="login()">Login</button>
+        <div class="header-right">
+            <button class="login-btn" onclick="login()">Sair</button>
 
-        <div class="icons-container">
-            <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
-            
-            <div class="search-box">
-                <input class="search-txt" type="text" placeholder="Buscar...">
-                <button class="search-btn">
-                    <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
-                </button>
+            <div class="icons-container">
+                <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+                
+                <div class="search-box">
+                    <input class="search-txt" type="text" placeholder="Buscar...">
+                    <button class="search-btn">
+                        <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
+                    </button>
+                </div>
+
+                <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu" onclick="abrirMenu()">
             </div>
-
-            <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
         </div>
-    </div>
-</header>
+    </header>
 
 
     <main>
@@ -58,34 +57,39 @@
     <section class="produtos-grid" id="lista-social-dinamica" style="margin-top: 50px; padding-bottom: 100px;">
         </section>
 
+    <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
+    <div id="sidebar-menu" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu Admin</h3>
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+        </div>
+        <div class="sidebar-content">
+            <a href="/src/app/pagina-admin/pagina-admin.html">Painel Principal</a>
+            <a href="/src/app/pagina-camisetas-admin/pagina-camisetas-admin.html">Gerenciar Camisetas</a>
+            <a href="/src/app/pagina-social/pagina-social.html">Gerenciar Social</a>
+            <hr>
+            <a href="/src/app/pagina-home/pagina-home.html">Ver Loja como Cliente</a>
+        </div>
+    </div>
+
     <script src="/src/js/auth.js"></script>
     <script src="/src/js/gerenciador.js"></script>
 
     <script>
-        // --- LÓGICA PARA MANTER O TEU VISUAL ---
-
         const container = document.getElementById('lista-social-dinamica');
-        
-        // Tenta ler os produtos. Se der erro, cria uma lista vazia para não travar.
         let todosProdutos = [];
         try {
             todosProdutos = lerProdutos(); 
         } catch (e) {
-            console.log("Iniciando banco de dados...");
-            inicializarBanco(); // Do gerenciador.js
+            inicializarBanco();
             todosProdutos = lerProdutos();
         }
 
-        // Filtra apenas Social
         const sociais = todosProdutos.filter(p => p.categoria === 'social');
-
         container.innerHTML = ''; 
-
 
         sociais.forEach(produto => {
             let preco = parseFloat(produto.preco).toFixed(2);
-            
-//------------------ html dos cards ------------------- //
             const cardHTML = `
                 <div class="produto-card">
                     <div class="imagem-container">
@@ -104,8 +108,6 @@
             container.innerHTML += cardHTML;
         });
 
-//------------------ card adicionar prd ------------------- //
-
         const cardAdicionar = `
             <div style="display: flex; flex-direction: column; align-items: center; margin-left:50px">
                 <div class="adicionar-produto-card">
@@ -115,14 +117,12 @@
                     </div>
                 </div>
                 <div class="separador" style="margin-top: 30px;"></div>
-                
                 <button class="btn-adicionar" style="margin-top: 20px;" onclick="criarNovoProduto('social')">
                     Adicionar novo produto
                 </button>
             </div>
         `;
         container.innerHTML += cardAdicionar;
-
     </script>
 </body>
 </html>

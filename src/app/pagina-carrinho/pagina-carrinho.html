@@ -10,35 +10,34 @@
 <body>
 
     <header>
-    <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
+        <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
 
-    <nav>
-        <ul>
-            <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
-            <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
+                <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+            </ul>
+        </nav>
 
-    <div class="header-right">
-        <button class="login-btn" onclick="login()">Login</button>
+        <div class="header-right">
+            <button class="login-btn" onclick="login()">Login</button>
 
-        <div class="icons-container">
-            <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
-            
-            <div class="search-box">
-                <input class="search-txt" type="text" placeholder="Buscar...">
-                <button class="search-btn">
-                    <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
-                </button>
+            <div class="icons-container">
+                <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+                
+                <div class="search-box">
+                    <input class="search-txt" type="text" placeholder="Buscar...">
+                    <button class="search-btn">
+                        <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
+                    </button>
+                </div>
+
+                <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu" onclick="abrirMenu()">
             </div>
-
-            <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
         </div>
-    </div>
-</header>
+    </header>
 
     <main class="main-container" style="margin-top: 50px;">
-        
         <div class="top-bar">
             <div class="page-title">
                 <h1>Carrinho</h1>
@@ -66,13 +65,11 @@
         <hr class="divider-full">
 
         <div class="cart-grid">
-            
             <div class="cart-items-section" id="lista-carrinho-dinamica">
                 <p>A carregar o carrinho...</p>
             </div>
 
             <div class="cart-summary-section" id="resumo-carrinho-box">
-                
                 <div class="summary-box">
                     <h3>Calcular frete e prazo</h3>
                     <div class="input-group">
@@ -91,33 +88,45 @@
                     <button class="btn-dark-full" onclick="irParaEntrega()">Comprar</button>
                     <button class="btn-light-full" onclick="window.location.href='/src/app/pagina-camisetas/pagina-camisetas.html'">Adicionar mais produtos</button>
                 </div>
-
             </div>
         </div>
 
         <div class="recommendations">
             <hr class="divider-full">
             <h2 class="rec-title">Você também pode gostar</h2>
-            
-            <section class="grade-sugestoes" id="lista-sugestoes">
-                </section>
+            <section class="grade-sugestoes" id="lista-sugestoes"></section>
         </div>
-
     </main>
+
+    <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
+    <div id="sidebar-menu" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+        </div>
+        <div class="sidebar-content">
+            <a href="/src/app/pagina-home/pagina-home.html">Início</a>
+            <a href="/src/app/pagina-camisetas/pagina-camisetas.html">Camisetas</a>
+            <a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">Social</a>
+            <a href="/src/app/pagina-carrinho/pagina-carrinho.html">Meu Carrinho</a>
+            <hr> 
+            <a href="/src/app/pagina-login/pagina-login.html">Minha Conta</a>
+            <a href="#" onclick="alert('Em breve!')">Ajuda</a>
+        </div>
+    </div>
 
     <script src="/src/js/auth.js"></script>
     <script src="/src/js/gerenciador.js"></script>
 
     <script>
-        // Ao carregar a página, desenha o carrinho e as sugestões
         document.addEventListener('DOMContentLoaded', () => {
             carregarCarrinhoNaTela();
             carregarSugestoes();
         });
 
         function irParaEntrega() {
-    window.location.href = "/src/app/pagina-entrega/pagina-entrega.html";
-}
+            window.location.href = "/src/app/pagina-entrega/pagina-entrega.html";
+        }
     </script>
 </body>
 </html>

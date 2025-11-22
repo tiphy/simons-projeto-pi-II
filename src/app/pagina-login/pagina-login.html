@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +32,7 @@
                     </button>
                 </div>
 
-                <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
+                <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu" onclick="abrirMenu()">
             </div>
         </div>
     </header>
@@ -63,7 +62,23 @@
         </div>
     </main>
 
-    <script src="/src/js/auth.js"></script>
-</body>
+    <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
+    <div id="sidebar-menu" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+        </div>
+        <div class="sidebar-content">
+            <a href="/src/app/pagina-home/pagina-home.html">Início</a>
+            <a href="/src/app/pagina-camisetas/pagina-camisetas.html">Camisetas</a>
+            <a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">Social</a>
+            <a href="/src/app/pagina-carrinho/pagina-carrinho.html">Meu Carrinho</a>
+            <hr> 
+            <a href="/src/app/pagina-login/pagina-login.html">Minha Conta</a>
+        </div>
+    </div>
 
+    <script src="/src/js/auth.js"></script>
+    <script src="/src/js/gerenciador.js"></script>
+</body>
 </html>
