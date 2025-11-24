@@ -144,7 +144,7 @@ main {
     justify-content: center;
     align-items: center;
     padding-top: 80px;
-    /* Espaço para o header não cobrir */
+    /* Espaço padrão para o header */
     position: relative;
     z-index: 2;
 }
@@ -279,353 +279,6 @@ input[type="password"] {
 
 .btn-criar-conta:hover {
     background-color: #f0f0f0;
-}
-
-
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .login-container {
-        width: 90%;
-        height: auto;
-        /* Altura automática no mobile */
-        flex-direction: column;
-    }
-
-    .image-section {
-        display: none;
-        /* Esconde imagem no mobile */
-    }
-
-    .form-section {
-        padding: 30px;
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-top: 100px;
-        /* Espaço extra no mobile */
-    }
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #7e7c7c;
-    color: rgb(0, 0, 0);
-    background-image: url('/public/images/amanda-login-fundo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
-
-/* --- HEADER --- */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #EDEDED;
-    width: 100%;
-    position: fixed;
-    padding: 10px 50px;
-    top: 0;
-    z-index: 100;
-    height: auto;
-}
-
-.logo-header {
-    width: 160px;
-    margin-left: 0;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 50px;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-    padding: 0px 32px;
-    padding-bottom: 10px;
-}
-
-a:hover {
-    color: #333333;
-    border-bottom: 2px solid #727272;
-}
-
-header nav a {
-    text-transform: lowercase;
-    font-size: 16px;
-    padding: 5px 0;
-}
-
-/* Lado Direito */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.login-btn {
-    border: 1px solid #fff;
-    border-radius: 20px;
-    padding: 8px 25px;
-    background-color: white;
-    box-shadow: 0 4px 8px #7c7c7c;
-    font-family: Arial, sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 14px;
-}
-
-.login-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px #5c5c5c;
-}
-
-.icons-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.icon-img {
-    width: 22px !important;
-    height: auto;
-    margin: 0;
-    cursor: pointer;
-}
-
-/* Barra de Busca */
-.search-box {
-    background: transparent;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.search-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-txt {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0;
-    color: #333;
-    font-size: 14px;
-    transition: 0.4s;
-    width: 0px;
-    border-bottom: 1px solid transparent;
-}
-
-.search-box:hover .search-txt,
-.search-txt:focus {
-    width: 150px;
-    padding: 0 10px;
-    border-bottom: 1px solid #333;
-}
-
-/* --- CORPO DA PÁGINA --- */
-main {
-    /* Ajusta a altura para centralizar o box verticalmente */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 80px;
-    /* Espaço para o header não cobrir */
-    position: relative;
-    z-index: 2;
-}
-
-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Escurece o fundo um pouco mais */
-    z-index: -1;
-}
-
-h1 {
-    color: white;
-    margin-bottom: 20px;
-    font-size: 28px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* --- CONTAINER DE LOGIN (Ajustado) --- */
-.login-container {
-    display: flex;
-    background: white;
-
-    /* Tamanhos fixos para garantir a proporção do layout original */
-    width: 800px;
-    height: 450px;
-
-    border-radius: 20px;
-    /* Bordas arredondadas */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    /* Garante que a imagem não saia das bordas arredondadas */
-    position: relative;
-}
-
-/* Metade Esquerda (Formulário) */
-.form-section {
-    flex: 1;
-    /* Ocupa 50% */
-    padding: 40px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Centraliza o form verticalmente */
-}
-
-.form-section form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Metade Direita (Imagem) */
-.image-section {
-    flex: 1;
-    /* Ocupa os outros 50% */
-    height: 100%;
-    position: relative;
-}
-
-.image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Faz a imagem preencher tudo sem distorcer */
-    object-position: top center;
-    /* Foca no rosto */
-    display: block;
-}
-
-/* Inputs */
-label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 2px;
-    font-weight: bold;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #f9f9f9;
-}
-
-.forgot-password {
-    text-align: right;
-    font-size: 12px;
-    color: #666;
-    text-decoration: none;
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
-
-/* Botões */
-.btn-entrar {
-    background-color: #4A4A4A;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-entrar:hover {
-    background-color: #333;
-}
-
-.btn-criar-conta {
-    background-color: #fff;
-    color: #000;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s;
-}
-
-.btn-criar-conta:hover {
-    background-color: #f0f0f0;
-}
-
-
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .login-container {
-        width: 90%;
-        height: auto;
-        /* Altura automática no mobile */
-        flex-direction: column;
-    }
-
-    .image-section {
-        display: none;
-        /* Esconde imagem no mobile */
-    }
-
-    .form-section {
-        padding: 30px;
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-top: 100px;
-        /* Espaço extra no mobile */
-    }
 }
 
 
@@ -653,7 +306,7 @@ input[type="password"] {
 .sidebar-menu {
     position: fixed;
     top: 0;
-    right: -350px; /* Começa ESCONDIDO pra fora da tela na direita */
+    right: -300px; /* Esconde o menu para a direita */
     width: 300px;
     height: 100%;
     background-color: #ffffff;
@@ -662,6 +315,14 @@ input[type="password"] {
     transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Animação elegante */
     display: flex;
     flex-direction: column;
+}
+
+/* Se o menu for menor que o dispositivo, ele ocupa 100% da tela */
+@media (max-width: 300px) {
+    .sidebar-menu {
+        width: 100%;
+        right: -100%;
+    }
 }
 
 /* Quando ativo via JS */
@@ -681,7 +342,7 @@ input[type="password"] {
 
 .sidebar-header h3 {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: Arial, sans-serif;
     font-size: 20px;
     font-weight: 600;
 }
@@ -711,7 +372,7 @@ input[type="password"] {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: Arial, sans-serif;
     transition: 0.2s;
     border-left: 4px solid transparent;
 }
@@ -727,4 +388,125 @@ input[type="password"] {
     border-top: 1px solid #eee;
     margin: 10px 30px;
     width: auto;
+}
+
+/* --- CLASSES DE RESPONSIVIDADE --- */
+
+/* Esconde o elemento em telas maiores que o limite */
+.hide-on-desktop {
+    display: none !important;
+}
+
+/* Esconde o elemento em telas menores que o limite */
+.hide-on-mobile {
+    display: block !important;
+}
+
+/* --- MEDIA QUERY: ATÉ 1024px (Tablets e Desktops menores) --- */
+@media (max-width: 1024px) {
+    header {
+        padding: 10px 30px; /* Reduz o padding lateral do header */
+    }
+
+    header nav ul {
+        gap: 30px; /* Diminui a distância entre os itens do menu */
+    }
+    
+    a {
+        padding: 0px 15px; /* Ajusta o padding dos links do menu */
+    }
+
+    /* Container de Login: Um pouco mais estreito */
+    .login-container {
+        width: 700px;
+        height: 400px;
+    }
+
+    .form-section {
+        padding: 30px 40px;
+    }
+}
+
+
+/* --- MEDIA QUERY: ATÉ 768px (Tablets em modo Portrait e Mobile) --- */
+@media (max-width: 768px) {
+
+    /* --- GERAL --- */
+    h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding-top: 100px; /* Aumenta o padding para compensar o header maior */
+    }
+    
+    /* Inverte as classes de ocultação */
+    .hide-on-desktop {
+        display: block !important;
+    }
+
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    /* --- HEADER --- */
+    header {
+        flex-direction: row; /* Mantém a logo e o lado direito na mesma linha */
+        justify-content: space-between;
+        padding: 15px 20px;
+        height: 70px; /* Altura fixa */
+    }
+
+    .logo-header {
+        width: 120px;
+    }
+
+    /* Oculta os itens de navegação padrão em telas menores */
+    header nav {
+        display: none; 
+    }
+    
+    /* Oculta o botão de login no cabeçalho */
+    .login-btn {
+        display: none; 
+    }
+
+    /* Oculta a barra de busca, deixando apenas o ícone */
+    .search-box {
+        height: auto;
+    }
+
+    .search-txt {
+        display: none; /* Esconde o campo de texto da busca */
+    }
+
+    .header-right {
+        gap: 15px; /* Reduz o espaço entre os ícones */
+    }
+
+    .icon-img {
+        width: 20px !important;
+    }
+
+
+    /* --- CONTAINER DE LOGIN --- */
+    .login-container {
+        width: 90%; /* Ocupa a maior parte da largura da tela */
+        min-height: 500px; /* Garante uma altura mínima */
+        height: auto;
+        flex-direction: column; /* Empilha o formulário e a imagem */
+    }
+
+    .image-section {
+        /* A imagem pode ser totalmente oculta ou ter uma altura reduzida */
+        /* display: none; */ 
+        height: 150px; /* Exibe a imagem, mas a deixa menor no topo */
+        order: 1; /* Faz a imagem ficar no topo do container */
+    }
+
+    .form-section {
+        order: 2; /* Faz o formulário ficar abaixo da imagem */
+        padding: 30px;
+        flex: none; /* Remove a flex-basis forçada */
+    }
 }

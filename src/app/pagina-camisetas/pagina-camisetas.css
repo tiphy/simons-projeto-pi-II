@@ -432,3 +432,126 @@ footer {
     margin: 10px 30px;
     width: auto;
 }
+
+/* --- 📱 TELAS DE TABLET (MAX-WIDTH: 1024PX) --- */
+@media (max-width: 1024px) {
+
+    /* Ajuste o espaçamento geral do cabeçalho */
+    header {
+        padding: 10px 20px;
+    }
+
+    /* Reduz o espaço entre os itens de navegação (menu central) */
+    header nav ul {
+        gap: 30px;
+    }
+
+    /* Reduz o padding dos links */
+    header nav a {
+        padding: 5px 0;
+        font-size: 15px;
+    }
+
+    /* Diminui o botão de login */
+    .login-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    /* Reduz o espaçamento entre o botão e os ícones */
+    .header-right {
+        gap: 15px;
+    }
+
+    /* Reduz um pouco o tamanho das imagens principais */
+    .ftp {
+        width: 35%;
+        margin: 0px 5px;
+    }
+
+    /* Centraliza os produtos em uma coluna menor, mas ainda em linha */
+    .central {
+        gap: 20px;
+    }
+}
+
+
+/* --- 📱 TELAS DE CELULAR (MAX-WIDTH: 768PX) --- */
+@media (max-width: 768px) {
+
+    /* 1. Esconder o Menu de Navegação (nav) no cabeçalho. */
+    /* Assumindo que você usará o .sidebar-menu (menu hambúrguer) */
+    header nav {
+        display: none;
+    }
+
+    /* 2. Otimizar o lado direito: Mantenha apenas os ícones e esconda o botão Login (opcional). */
+    /* Remove o botão Login para priorizar espaço */
+    .login-btn {
+        display: none;
+    }
+
+    /* Centraliza o cabeçalho ajustando o espaçamento interno */
+    header {
+        padding: 10px 15px;
+    }
+
+    /* Reduz o container de ícones e o tamanho dos ícones */
+    .icons-container {
+        gap: 10px;
+    }
+
+    .icon-img {
+        width: 20px;
+    }
+
+    /* 3. Ajustar a seção de fotos principais (Seção com .ftp) */
+    .fotos-principal {
+        flex-direction: column; /* Coloca as fotos uma abaixo da outra */
+        padding: 10px 0;
+        margin: 10px 0;
+    }
+
+    .ftp {
+        width: 80%; /* Ocupa a maior parte da largura da tela */
+        margin: 10px 0; /* Adiciona margem superior/inferior para separação */
+    }
+
+    /* 4. Ajustar a seção de produtos (Seção com .central) */
+    .central {
+        flex-direction: column; /* Coloca os produtos um abaixo do outro */
+        gap: 40px; /* Mais espaço entre os produtos */
+        margin: 0px 10px;
+    }
+
+    /* Garante que o container do produto use a largura total */
+    .produto {
+        width: 100%;
+        align-items: center; /* Centraliza a coluna de produto */
+    }
+
+    /* Reduz o tamanho da imagem da camiseta */
+    .camiseta-img {
+        width: 200px;
+        padding: 10px 20px;
+    }
+
+    /* Centraliza a linha de detalhes da camiseta (preço/botão) */
+    .linha-camiseta {
+        flex-direction: column; /* Preço e botão um abaixo do outro */
+        gap: 10px;
+        align-items: center;
+        width: auto;
+        margin-left: 0;
+    }
+
+    .titulo-camiseta {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    /* Reduz o padding do rodapé */
+    footer {
+        padding: 50px 10px;
+    }
+}

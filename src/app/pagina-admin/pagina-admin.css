@@ -14,23 +14,26 @@ body {
     min-height: 100vh;
 }
 
+/* --- HEADER --- */
 header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: rgba(255, 255, 255, 0.90);
     width: 100%;
     position: fixed;
     padding: 20px 50px;
     top: 0;
-    z-index: 10;
-    justify-content: space-between;
+    z-index: 100; /* Z-index alto para garantir que fique no topo */
 }
 
+/* --- NAV (Menu Central) --- */
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 100px;
-
+    gap: 50px; /* Reduzi o gap de 100px para 50px no desktop para dar mais espaço */
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -51,113 +54,33 @@ header nav a {
     padding: 5px 0;
 }
 
-.right-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-}
-
-.btn-login {
-    padding: 8px 20px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: white;
-    color: black;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px #7c7c7c;
-    cursor: pointer;
-    font-size: 14px;
-    text-transform: lowercase;
-    width: 90px;
-    transition: all 0.2s ease;
-
-}
-
-.btn-login:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px #5c5c5c;
-}
-
-.right-nav img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.btn-login-carrino-lupa {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.login-container {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    background: rgba(255, 255, 255, 0.85);
-    margin: 200px auto 0 auto;
-    width: 560px;
-    height: 400px;
-    border-radius: 16px;
-    padding: 40px 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-/* --- AJUSTES GERAIS DO HEADER --- */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Mantém Logo na esq, Menu no centro, Login/Ícones na dir */
-    background: #f6f6f6;
-    width: 100%;
-    position: fixed;
-    padding: 10px 50px;
-    top: 0;
-    z-index: 100;
-}
-
-/* --- NAV (Menu Central) --- */
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 50px;
-    /* Ajuste o espaço entre "camisetas" e "social" */
-    margin: 0;
-    padding: 0;
-}
-
 /* --- LADO DIREITO (Login + Ícones) --- */
 .header-right {
     display: flex;
     align-items: center;
     gap: 30px;
-    /* Espaço entre o botão Login e os ícones */
 }
 
-/* Botão de Login (Estilo Limpo) */
-.login-btn {
-    border: 1px solid #fff;
-    border-radius: 20px;
+.btn-login {
     padding: 8px 25px;
+    border: 1px solid rgb(255, 255, 255);
     background-color: white;
+    color: black;
+    border-radius: 20px;
     box-shadow: 0 4px 8px #dcdcdc;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 14px;
+    text-transform: lowercase;
+    width: auto; /* Deixei a largura automática */
+    transition: all 0.2s ease;
+    font-weight: 600;
 }
 
-.login-btn:hover {
+.btn-login:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px #bfbfbf;
+    box-shadow: 0 8px 16px #bfbfbf;
 }
 
-/* Container dos ícones */
 .icons-container {
     display: flex;
     align-items: center;
@@ -175,7 +98,7 @@ header nav ul {
     opacity: 0.7;
 }
 
-/* --- A MÁGICA DA BARRA DE PESQUISA --- */
+/* --- Barra de Busca --- */
 .search-box {
     background: transparent;
     height: 30px;
@@ -203,26 +126,34 @@ header nav ul {
     font-size: 14px;
     transition: 0.4s;
     width: 0px;
-    /* Começa fechado */
-    font-family: 'Poppins', sans-serif;
     border-bottom: 1px solid transparent;
-    /* Linha invisível inicialmente */
 }
 
-/* Efeito ao passar o mouse ou focar na caixa */
 .search-box:hover .search-txt,
 .search-txt:focus {
     width: 200px;
-    /* Abre a barra */
     padding: 0 10px;
     border-bottom: 1px solid #333;
-    /* Aparece a linha preta sutil */
 }
 
 
+/* --- LOGIN CONTAINER --- */
+.login-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column; /* Garantindo que o conteúdo interno seja empilhado */
+    background: rgba(255, 255, 255, 0.85);
+    margin: 200px auto 0 auto;
+    width: 560px;
+    height: 400px;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
 
-/*------------amanda-principal---------------*/
 
+/* --- BANNER PRINCIPAL (amanda-principal) --- */
 .amanda-principal {
     width: 30%;
     margin: 0 5px;
@@ -234,25 +165,25 @@ header nav ul {
 .container-principal {
     background-color: #c5c3bf;
     display: flex;
-    margin-top: 100px;
-
+    min-height: 400px; /* Altura mínima para o banner */
+    margin-top: 85px; /* Espaço para o header */
+    align-items: center;
 }
 
 .container-principal h1 {
     text-align: left;
-    justify-content: center;
-    margin-top: 150px;
+    margin-top: 0;
     width: 500px;
     font-weight: bold;
     font-size: 70px;
     margin-left: 10%;
     color: #f3f3f3;
     text-shadow: 0 5px 8px #5c5c5c;
+    flex-shrink: 0; /* Impede que o título encolha demais no desktop */
 }
 
 
-/*------------pagina-principal-produtos------------*/
-
+/* --- PRODUTOS --- */
 .page-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -319,9 +250,6 @@ header nav ul {
     background-color: #e0e0e0;
 }
 
-
-/* ------------------botao-----------------*/
-
 .section-footer {
     text-align: center;
     margin-top: 40px;
@@ -345,47 +273,44 @@ header nav ul {
 }
 
 
-/* --- FUNDO ESCURO (OVERLAY) --- */
+/* --- SIDEBAR e OVERLAY (Manter) --- */
+
 .menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
-    z-index: 150; /* Fica acima do site, mas abaixo do menu */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 150;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease; /* Suavidade ao aparecer */
+    transition: opacity 0.4s ease;
 }
 
-/* Quando ativo via JS */
 .menu-overlay.ativo {
     opacity: 1;
     visibility: visible;
 }
 
-/* --- MENU LATERAL (SIDEBAR) --- */
 .sidebar-menu {
     position: fixed;
     top: 0;
-    right: -350px; /* Começa ESCONDIDO pra fora da tela na direita */
+    right: -300px; /* Ajustei para 300px para corresponder à largura */
     width: 300px;
     height: 100%;
     background-color: #ffffff;
-    z-index: 200; /* Fica acima de tudo */
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Animação elegante */
+    z-index: 200;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
 }
 
-/* Quando ativo via JS */
 .sidebar-menu.aberto {
-    right: 0; /* Desliza para dentro da tela */
+    right: 0;
 }
 
-/* Cabeçalho do Menu */
 .sidebar-header {
     padding: 20px 30px;
     border-bottom: 1px solid #eee;
@@ -397,12 +322,11 @@ header nav ul {
 
 .sidebar-header h3 {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: Arial, sans-serif;
     font-size: 20px;
     font-weight: 600;
 }
 
-/* Botão X de fechar */
 .btn-fechar {
     font-size: 30px;
     cursor: pointer;
@@ -412,10 +336,9 @@ header nav ul {
 }
 
 .btn-fechar:hover {
-    color: #ff4d4d; /* Vermelho suave ao passar o mouse */
+    color: #ff4d4d;
 }
 
-/* Links do Menu */
 .sidebar-content {
     padding: 20px 0;
     display: flex;
@@ -427,14 +350,14 @@ header nav ul {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: Arial, sans-serif;
     transition: 0.2s;
     border-left: 4px solid transparent;
 }
 
 .sidebar-content a:hover {
     background-color: #f6f6f6;
-    border-left: 4px solid #333; /* Detalhe visual na esquerda */
+    border-left: 4px solid #333;
     color: #000;
 }
 
@@ -443,4 +366,152 @@ header nav ul {
     border-top: 1px solid #eee;
     margin: 10px 30px;
     width: auto;
+}
+
+/* --- CLASSES DE UTILIDADE DE RESPONSIVIDADE --- */
+.hide-on-desktop {
+    display: none !important;
+}
+
+.hide-on-mobile {
+    display: block !important;
+}
+
+/* ================================================= */
+/* --- MEDIA QUERIES ---                    */
+/* ================================================= */
+
+
+/* --- 1. MEDIA QUERY: ATÉ 1024px (Tablets e Laptops) --- */
+@media (max-width: 1024px) {
+    
+    /* --- HEADER --- */
+    header {
+        padding: 10px 30px;
+    }
+
+    header nav ul {
+        gap: 30px; 
+    }
+    
+    /* --- CONTAINER PRINCIPAL (BANNER) --- */
+    .container-principal h1 {
+        font-size: 50px;
+        width: 400px;
+        margin-left: 5%;
+    }
+    
+    /* --- PRODUTOS --- */
+    .grade-produtos {
+        /* Passa de 3 para 2 colunas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+    
+    /* --- LOGIN CONTAINER --- */
+    .login-container {
+        width: 450px;
+        margin-top: 150px;
+    }
+}
+
+
+/* --- 2. MEDIA QUERY: ATÉ 768px (Tablets em modo Portrait e Mobile) --- */
+@media (max-width: 768px) {
+
+    /* --- UTILIDADES --- */
+    .hide-on-desktop {
+        display: block !important;
+    }
+
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    /* --- HEADER --- */
+    header {
+        padding: 15px 20px;
+    }
+
+    /* Oculta o menu de navegação completo */
+    header nav {
+        display: none; 
+    }
+    
+    .btn-login {
+        display: none; /* Oculta o botão de login no cabeçalho */
+    }
+
+    .header-right {
+        gap: 15px;
+    }
+
+    /* Oculta a caixa de texto da pesquisa, deixando apenas o ícone */
+    .search-txt {
+        display: none; 
+    }
+
+
+    /* --- CONTAINER PRINCIPAL (BANNER) --- */
+    .container-principal {
+        /* Permite que o conteúdo seja empilhado */
+        flex-direction: column; 
+        min-height: 300px;
+        text-align: center;
+        margin-top: 60px; /* Mais compacto */
+    }
+
+    .container-principal h1 {
+        font-size: 40px;
+        text-align: center;
+        width: 90%;
+        margin: 20px auto;
+        order: 2; /* Move o título para baixo no empilhamento */
+    }
+
+    .amanda-principal {
+        /* Ajusta o item de banner para ocupar 100% da largura, se for uma imagem */
+        width: 100%; 
+        order: 1; /* Move a imagem para cima */
+        max-height: 200px;
+    }
+
+
+    /* --- PRODUTOS --- */
+    .secao-produtos {
+        margin-top: 40px;
+    }
+    
+    .grade-produtos {
+        /* Passa para 1 coluna */
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+
+    /* --- LOGIN CONTAINER --- */
+    .login-container {
+        width: 90%; /* Ocupa quase toda a largura */
+        min-height: 350px;
+        margin-top: 100px;
+        padding: 25px;
+    }
+}
+
+/* --- 3. MEDIA QUERY: ATÉ 480px (Smartphones menores) --- */
+@media (max-width: 480px) {
+
+    /* --- GERAL E PADDING --- */
+    .page-container {
+        padding: 0 15px;
+    }
+
+    /* --- BANNER --- */
+    .container-principal h1 {
+        font-size: 30px;
+    }
+    
+    /* Ajuste no sidebar para ocupar a largura total em telas muito pequenas */
+    .sidebar-menu {
+        width: 100%;
+    }
 }

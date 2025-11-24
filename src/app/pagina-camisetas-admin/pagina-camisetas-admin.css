@@ -490,3 +490,132 @@ hr {
     margin: 10px 30px;
     width: auto;
 }
+
+@media screen and (max-width: 1024px) {
+
+    /* --- HEADER / NAVEGAÇÃO --- */
+    header {
+        padding: 10px 30px; /* Diminui o padding horizontal */
+    }
+
+    /* Esconde o menu de links no header (será substituído pelo menu lateral) */
+    header nav {
+        display: none;
+    }
+
+    /* Ajusta o espaçamento do lado direito */
+    .header-right {
+        gap: 20px;
+    }
+
+    .login-btn {
+        padding: 6px 20px;
+    }
+
+    /* --- CONTEÚDO PRINCIPAL (3 COLUNAS -> 2 COLUNAS) --- */
+    .fotos-principal {
+        flex-direction: column; /* Coloca as fotos em coluna, mas vamos tentar em 2 */
+        gap: 20px; /* Espaço entre as fotos */
+        padding: 20px 10px;
+    }
+    
+    .ftp {
+        /* Para 2 colunas em telas maiores (e em linha para desktop) */
+        width: 45%; 
+        height: auto; /* Altura automática para melhor adaptação */
+        margin: 0;
+    }
+
+    /* Garante que o container central de produtos fique centralizado */
+    .central {
+        gap: 30px; /* Diminui o gap entre produtos */
+        margin: 0;
+    }
+
+    /* Produtos (4 -> 3 ou 2) */
+    .produto {
+        /* 3 produtos por linha */
+        /* width: calc(33.33% - 30px); */
+    }
+
+    .camiseta-img {
+        width: 220px; /* Diminui um pouco o tamanho das imagens do produto */
+    }
+}
+
+/* ========================================================================= */
+/* --- 📱 MEDIA QUERY PARA TELAS DE ATÉ 768px (CELULARES E TABLETS NA VERTICAL) --- */
+/* Ajuste a partir de 768px para melhor visualização em celulares */
+@media screen and (max-width: 768px) {
+
+    /* --- HEADER / NAVEGAÇÃO --- */
+    header {
+        padding: 10px 20px; /* Mais estreito */
+    }
+
+    /* Esconde o botão de Login (geralmente fica no menu lateral em mobile) */
+    .login-btn {
+        display: none;
+    }
+    
+    /* Esconde o campo de pesquisa (será um ícone que abre a busca ou no menu lateral) */
+    .search-box {
+        display: none;
+    }
+
+    /* --- CONTEÚDO PRINCIPAL (2 COLUNAS -> 1 COLUNA) --- */
+    .fotos-principal {
+        flex-direction: column; /* Força coluna para celulares */
+    }
+
+    .ftp {
+        width: 90%; /* Ocupa quase a largura total da tela */
+        height: auto;
+    }
+    
+    /* --- PRODUTOS (2 COLUNAS) --- */
+    .central {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .produto {
+        /* 2 produtos por linha (aproximadamente 50% da largura) */
+        width: 45%; 
+        min-width: 250px;
+    }
+
+    .camiseta-img {
+        width: 100%; /* Ocupa o espaço máximo do container .produto */
+        padding: 10px;
+    }
+    
+    /* Outros textos e títulos */
+    .title {
+        font-size: 18px;
+        padding: 5px 0px;
+    }
+    
+    /* --- FOOTER --- */
+    footer {
+        padding: 50px 20px;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
+/* ========================================================================= */
+/* --- 📱 MEDIA QUERY PARA TELAS MUITO PEQUENAS (320px) --- */
+@media screen and (max-width: 480px) {
+
+    /* Garante que os produtos sejam exibidos um por linha, se necessário */
+    .produto {
+        width: 90%; /* Um por linha */
+        min-width: auto;
+    }
+    
+    .camiseta-img {
+        width: 100%; 
+    }
+}

@@ -609,11 +609,14 @@ header nav ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
-    z-index: 150; /* Fica acima do site, mas abaixo do menu */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Preto com 50% de transparência */
+    z-index: 150;
+    /* Fica acima do site, mas abaixo do menu */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease; /* Suavidade ao aparecer */
+    transition: opacity 0.4s ease;
+    /* Suavidade ao aparecer */
 }
 
 /* Quando ativo via JS */
@@ -626,20 +629,24 @@ header nav ul {
 .sidebar-menu {
     position: fixed;
     top: 0;
-    right: -350px; /* Começa ESCONDIDO pra fora da tela na direita */
+    right: -350px;
+    /* Começa ESCONDIDO pra fora da tela na direita */
     width: 300px;
     height: 100%;
     background-color: #ffffff;
-    z-index: 200; /* Fica acima de tudo */
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Animação elegante */
+    z-index: 200;
+    /* Fica acima de tudo */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    /* Animação elegante */
     display: flex;
     flex-direction: column;
 }
 
 /* Quando ativo via JS */
 .sidebar-menu.aberto {
-    right: 0; /* Desliza para dentro da tela */
+    right: 0;
+    /* Desliza para dentro da tela */
 }
 
 /* Cabeçalho do Menu */
@@ -654,7 +661,8 @@ header nav ul {
 
 .sidebar-header h3 {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: 'Poppins', sans-serif;
+    /* Ou Arial */
     font-size: 20px;
     font-weight: 600;
 }
@@ -669,7 +677,8 @@ header nav ul {
 }
 
 .btn-fechar:hover {
-    color: #ff4d4d; /* Vermelho suave ao passar o mouse */
+    color: #ff4d4d;
+    /* Vermelho suave ao passar o mouse */
 }
 
 /* Links do Menu */
@@ -684,14 +693,16 @@ header nav ul {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: 'Poppins', sans-serif;
+    /* Ou Arial */
     transition: 0.2s;
     border-left: 4px solid transparent;
 }
 
 .sidebar-content a:hover {
     background-color: #f6f6f6;
-    border-left: 4px solid #333; /* Detalhe visual na esquerda */
+    border-left: 4px solid #333;
+    /* Detalhe visual na esquerda */
     color: #000;
 }
 
@@ -700,4 +711,184 @@ header nav ul {
     border-top: 1px solid #eee;
     margin: 10px 30px;
     width: auto;
+}
+
+
+/* --- Telas Grandes (Desktops) --- */
+@media (min-width: 1200px) {
+    .main-container {
+        max-width: 1400px; /* Aumenta a largura máxima do container central */
+        padding: 50px 30px;
+    }
+
+    header {
+        padding: 15px 80px; /* Aumenta o padding lateral do header */
+    }
+
+    header nav ul {
+        gap: 60px; /* Aumenta o espaçamento do menu */
+    }
+    
+    .payment-grid {
+        gap: 60px; /* Aumenta o espaçamento entre colunas */
+    }
+    
+    .payment-content {
+        padding: 40px 80px; /* Mais espaço no formulário */
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* ... (restante do seu código) ... */
+
+    /* AJUSTE PARA HEADER */
+    header {
+        flex-wrap: wrap; /* Permite que os elementos quebrem a linha */
+        padding: 10px 20px; /* Reduz o padding lateral */
+    }
+
+    /* Oculta a navegação principal (será substituída por um menu lateral/hambúrguer) */
+    header nav {
+        display: none;
+    }
+    
+    /* Garante que o lado direito fique alinhado ou na linha de baixo */
+    .header-right {
+        margin-right: 0;
+    }
+    
+    /* ... (restante do seu código) ... */
+    
+    /* Otimização da barra de pagamento (para não quebrar em telas menores que 768px) */
+    .payment-tabs {
+        flex-direction: row; /* Volta a ser horizontal para o tablet */
+        flex-wrap: wrap; /* Permite que as abas quebrem em 2 linhas se necessário */
+        justify-content: center;
+        border-bottom: 1px solid #e0e0e0;
+        border-right: none;
+    }
+    
+    .tab-btn {
+        width: 33.33%; /* Exemplo: 3 abas por linha */
+        text-align: center;
+        border-right: none !important;
+        border-bottom: 2px solid transparent;
+        padding: 10px;
+    }
+    
+    .tab-btn.active {
+        border-bottom: 2px solid #000;
+        border-right: none;
+    }
+    
+    /* ... (restante do seu código) ... */
+}
+
+
+/* --- Celulares (Smartphones) --- */
+@media (max-width: 480px) {
+    /* Ajustes Gerais */
+    .main-container {
+        padding: 20px 10px; /* Reduz o padding lateral do conteúdo */
+    }
+
+    /* Cabeçalho */
+    header {
+        padding: 10px 15px; /* Reduz o padding lateral do header */
+    }
+
+    /* Remove o menu de navegação principal (deve ser substituído por um hambúrguer) */
+    header nav {
+        display: none;
+    }
+
+    .header-right {
+        margin-right: 0;
+        gap: 10px;
+    }
+
+    /* Oculta o botão de login para economizar espaço */
+    .btn-login-header,
+    .login-btn {
+        display: none;
+    }
+
+    /* Oculta a barra de pesquisa ou a torna menor */
+    .search-box:hover .search-txt,
+    .search-txt:focus {
+        width: 120px; /* Limita a abertura da barra */
+        padding: 0 5px;
+    }
+    
+    .icons img, .icon-img {
+        width: 20px;
+        margin-left: 5px;
+    }
+
+    /* Título e Steps */
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .page-title h1 {
+        font-size: 24px;
+    }
+
+    /* Abas de Pagamento */
+    .payment-tabs {
+        /* Garante que o menu de abas em flex-direction: column (de 768px) funcione bem */
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        padding: 10px 15px; /* Reduz o padding da aba */
+    }
+
+    .payment-content {
+        padding: 20px 15px; /* Reduz o padding do conteúdo do formulário */
+    }
+
+    .split {
+        flex-direction: column; /* Coloca campos lado a lado em colunas */
+        gap: 0;
+    }
+    
+    .input-line {
+        margin-bottom: 15px;
+    }
+
+    /* Resumo do Pedido */
+    .coupon-box, .summary-box {
+        padding: 15px; /* Reduz o padding do sidebar */
+    }
+    
+    .coupon-input-group input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* Revisão do Carrinho */
+    .review-box {
+        padding: 15px;
+        /* Reutiliza o estilo de 768px para empilhamento vertical */
+    }
+    
+    .review-box img.product-img {
+        width: 80px;
+        height: 80px;
+        margin-right: 15px;
+    }
+    
+    .tags {
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+    
+    .tag {
+        padding: 2px 10px;
+        font-size: 11px;
+    }
+    
 }

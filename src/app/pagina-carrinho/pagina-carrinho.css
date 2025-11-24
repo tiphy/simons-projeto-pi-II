@@ -10,32 +10,6 @@ body {
     color: #000;
 }
 
-/* --- HEADER --- */
-header {
-    display: flex;
-    align-items: center;
-    background: #f6f6f6;
-    width: 100%;
-    position: fixed;
-    padding: 10px 50px;
-    top: 0;
-    z-index: 10;
-    justify-content: space-between;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 100px;
-
-}
-
-header nav a {
-    text-transform: lowercase;
-    font-size: 16px;
-    padding: 5px 0;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -48,6 +22,27 @@ a:hover {
     border-bottom: 2px solid #727272;
 }
 
+/* --- HEADER --- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6f6f6;
+    width: 100%;
+    position: fixed;
+    padding: 10px 50px;
+    top: 0;
+    z-index: 100;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
 header nav a {
     text-transform: lowercase;
     font-size: 16px;
@@ -57,43 +52,9 @@ header nav a {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-right: 50px;
-}
-
-/* --- AJUSTES GERAIS DO HEADER --- */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Mantém Logo na esq, Menu no centro, Login/Ícones na dir */
-    background: #f6f6f6;
-    width: 100%;
-    position: fixed;
-    padding: 10px 50px;
-    top: 0;
-    z-index: 100;
-}
-
-/* --- NAV (Menu Central) --- */
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 50px;
-    /* Ajuste o espaço entre "camisetas" e "social" */
-    margin: 0;
-    padding: 0;
-}
-
-/* --- LADO DIREITO (Login + Ícones) --- */
-.header-right {
-    display: flex;
-    align-items: center;
     gap: 30px;
-    /* Espaço entre o botão Login e os ícones */
 }
 
-/* Botão de Login (Estilo Limpo) */
 .login-btn {
     border: 1px solid #fff;
     border-radius: 20px;
@@ -111,7 +72,6 @@ header nav ul {
     box-shadow: 0 6px 12px #bfbfbf;
 }
 
-/* Container dos ícones */
 .icons-container {
     display: flex;
     align-items: center;
@@ -129,7 +89,7 @@ header nav ul {
     opacity: 0.7;
 }
 
-/* --- A MÁGICA DA BARRA DE PESQUISA --- */
+/* --- BARRA DE PESQUISA --- */
 .search-box {
     background: transparent;
     height: 30px;
@@ -157,24 +117,16 @@ header nav ul {
     font-size: 14px;
     transition: 0.4s;
     width: 0px;
-    /* Começa fechado */
     font-family: 'Poppins', sans-serif;
     border-bottom: 1px solid transparent;
-    /* Linha invisível inicialmente */
 }
 
-/* Efeito ao passar o mouse ou focar na caixa */
 .search-box:hover .search-txt,
 .search-txt:focus {
     width: 200px;
-    /* Abre a barra */
     padding: 0 10px;
     border-bottom: 1px solid #333;
-    /* Aparece a linha preta sutil */
 }
-
-
-
 
 .btn-login-header {
     background: white;
@@ -474,26 +426,6 @@ header nav ul {
     cursor: pointer;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        gap: 15px;
-    }
-
-    .cart-grid {
-        flex-direction: column;
-    }
-
-    .top-bar {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-
-
 /* --- FUNDO ESCURO (OVERLAY) --- */
 .menu-overlay {
     position: fixed;
@@ -501,11 +433,11 @@ header nav ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
-    z-index: 150; /* Fica acima do site, mas abaixo do menu */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 150;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease; /* Suavidade ao aparecer */
+    transition: opacity 0.4s ease;
 }
 
 /* Quando ativo via JS */
@@ -518,20 +450,20 @@ header nav ul {
 .sidebar-menu {
     position: fixed;
     top: 0;
-    right: -350px; /* Começa ESCONDIDO pra fora da tela na direita */
+    right: -350px;
     width: 300px;
     height: 100%;
     background-color: #ffffff;
-    z-index: 200; /* Fica acima de tudo */
+    z-index: 200;
     box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Animação elegante */
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
 }
 
 /* Quando ativo via JS */
 .sidebar-menu.aberto {
-    right: 0; /* Desliza para dentro da tela */
+    right: 0;
 }
 
 /* Cabeçalho do Menu */
@@ -546,7 +478,7 @@ header nav ul {
 
 .sidebar-header h3 {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 600;
 }
@@ -561,7 +493,7 @@ header nav ul {
 }
 
 .btn-fechar:hover {
-    color: #ff4d4d; /* Vermelho suave ao passar o mouse */
+    color: #ff4d4d;
 }
 
 /* Links do Menu */
@@ -576,14 +508,14 @@ header nav ul {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif; /* Ou Arial */
+    font-family: 'Poppins', sans-serif;
     transition: 0.2s;
     border-left: 4px solid transparent;
 }
 
 .sidebar-content a:hover {
     background-color: #f6f6f6;
-    border-left: 4px solid #333; /* Detalhe visual na esquerda */
+    border-left: 4px solid #333;
     color: #000;
 }
 
@@ -594,3 +526,143 @@ header nav ul {
     width: auto;
 }
 
+
+/* --- RESPONSIVIDADE --- */
+
+/* 1. Telas de Tablets e Desktops Menores (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    header {
+        padding: 10px 20px; /* Diminui o padding horizontal */
+    }
+
+    /* Reduz o espaçamento do menu */
+    header nav ul {
+        gap: 20px;
+    }
+
+    /* Diminui o tamanho máximo do container principal */
+    .main-container {
+        max-width: 960px;
+    }
+
+    /* Ajuste para o carrinho (permite que o resumo seja um pouco mais largo) */
+    .cart-items-section {
+        flex: 3;
+    }
+
+    .cart-summary-section {
+        flex: 1.5;
+    }
+}
+
+/* 2. Telas de Tablets e Celulares na Horizontal (Max-width: 768px) */
+@media (max-width: 768px) {
+    /* --- HEADER --- */
+    header {
+        flex-direction: column; /* Empilha os itens (Logo, Menu, Ícones) */
+        height: auto;
+        padding: 10px 20px;
+        gap: 15px;
+        position: static; /* Remove fixed para liberar espaço na tela */
+    }
+
+    /* Oculta o menu de navegação e o botão de login para priorizar os ícones */
+    header nav {
+        display: none;
+    }
+
+    .login-btn {
+        display: none;
+    }
+
+    /* Reorganiza a barra de pesquisa e os ícones */
+    .header-right {
+        margin: 0;
+        width: 100%;
+        justify-content: flex-end; /* Alinha os ícones à direita */
+    }
+    
+    /* Garante que o container principal tenha margem para o cabeçalho estático, se necessário */
+    .main-container {
+        padding-top: 20px;
+    }
+
+    /* --- LAYOUT PRINCIPAL --- */
+    .top-bar {
+        flex-direction: column; /* Empilha o título e os passos */
+        gap: 20px;
+        align-items: flex-start; /* Alinha à esquerda */
+    }
+
+    .progress-steps {
+        width: 100%;
+        justify-content: space-between; /* Distribui os passos */
+    }
+
+    .line {
+        flex-grow: 1; /* Faz com que a linha ocupe o espaço entre os círculos */
+        width: auto; /* Anula a largura fixa anterior */
+    }
+
+    .cart-grid {
+        flex-direction: column; /* Carrinho e Resumo empilhados */
+        gap: 30px;
+    }
+
+    .cart-items-section,
+    .cart-summary-section {
+        flex: 100%; /* Ocupa 100% da largura */
+    }
+
+    /* --- SUGESTÕES --- */
+    .grade-sugestoes {
+        gap: 20px; /* Reduz o espaço entre os cards */
+    }
+    
+    .produto-card-clean {
+        width: 45%; /* Permite 2 cards por linha */
+        min-width: 250px;
+    }
+}
+
+/* 3. Telas de Celulares Pequenos (Max-width: 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+    
+    .page-title h1 {
+        font-size: 24px; /* Diminui o título */
+    }
+
+    /* --- ITEM DO CARRINHO --- */
+    .cart-item {
+        flex-direction: column; /* Empilha imagem e detalhes */
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .cart-item img {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .item-actions {
+        margin-top: 15px;
+    }
+
+    /* --- BARRA DE PESQUISA --- */
+    .search-box:hover .search-txt,
+    .search-txt:focus {
+        width: 150px; /* Limita a largura da barra de pesquisa no celular */
+    }
+
+    /* --- SUGESTÕES --- */
+    .produto-card-clean {
+        width: 90%; /* Força 1 card por linha */
+        max-width: 300px;
+    }
+}
