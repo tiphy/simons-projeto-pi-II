@@ -308,3 +308,33 @@ function fecharMenu() {
     // Volta a permitir a rolagem da página
     document.body.style.overflow = 'auto';
 }
+
+
+
+// ================== LÓGICA DO CARROSSEL DE PRODUTO ==================
+
+function scrollProductCarousel(carouselId, direction) {
+    const carouselContainer = document.getElementById(carouselId);
+    if (!carouselContainer) return;
+
+    // Busca o elemento onde as imagens estão e onde a rolagem acontece
+    const carouselInner = carouselContainer.querySelector('.carousel-inner');
+    if (!carouselInner || carouselInner.children.length === 0) return;
+
+    // A largura do slide é a largura visível do container
+    const slideWidth = carouselInner.offsetWidth;
+    const currentScroll = carouselInner.scrollLeft;
+    
+    // Calcula a nova posição de rolagem
+    const newScrollPosition = currentScroll + (direction * slideWidth);
+
+    // Rola suavemente
+    carouselInner.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+    });
+}
+
+// Torna a função acessível globalmente
+window.scrollProductCarousel = scrollProductCarousel;
+

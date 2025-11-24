@@ -395,6 +395,16 @@ main .container-principal {
     }
 }
 
+footer {
+    text-align: center;
+    background-color: #f6f6f6;
+
+    width: 100%;
+    padding: 100px 20px;
+    margin-top: 10%;
+}
+
+
 /* --- FUNDO ESCURO (OVERLAY) --- */
 .menu-overlay {
     position: fixed;

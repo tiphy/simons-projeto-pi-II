@@ -12,7 +12,7 @@ function criarConta() {
     window.location.href = "/src/app/pagina-login/pagina-cadastro.html";
 }
 
-// 3. FUNÇÃO DE CADASTRO (Nova!)
+// 3. FUNÇÃO DE CADASTRO
 function realizarCadastro(event) {
     event.preventDefault();
 
@@ -68,9 +68,25 @@ function entrar(event) {
     }
 }
 
-// -------- btn esqueci a senha ---------
+// 5. FUNÇÃO DE RECUPERAÇÃO DE SENHA 
+function recuperarSenha(event) {
+    event.preventDefault();
+    const email = document.getElementById('email-recuperacao').value;
+    let listaUsuarios = JSON.parse(localStorage.getItem('usuariosSimons')) || [];
+    const usuarioEncontrado = listaUsuarios.find(u => u.email === email);
+
+    if (usuarioEncontrado) {
+        alert(`Instruções de recuperação enviadas para ${email}. (A senha, neste exemplo, é: ${usuarioEncontrado.senha})`);
+        window.location.href = "/src/app/pagina-login/pagina-login.html";
+    } else {
+        alert("E-mail não encontrado. Verifique e tente novamente.");
+    }
+}
+
+// -------- btn esqueci a senha ANTIGO (Substituído pelo novo link) ---------
 function senha() {
-    alert("Funcionalidade de recuperar senha em desenvolvimento!");
+    // Esta função não é mais usada diretamente, pois o link aponta para o novo HTML.
+    alert("A página de recuperação de senha agora está funcional!");
 }
 
 // ================== NAVEGAÇÃO ==================

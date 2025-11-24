@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/app/pagina-login/pagina-login.css" rel="stylesheet">
     <link type="image/x-icon" href="/public/images/as-logo.png" rel="shortcut icon">
-    <title>Página de Login</title>
+    <title>Recuperar Senha | Simons</title>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
         </nav>
 
         <div class="header-right">
-            <button class="login-btn" onclick="window.location.href='/src/app/pagina-login/pagina-cadastro.html'">Criar Conta</button>
+            <button class="login-btn" onclick="window.location.href='/src/app/pagina-login/pagina-login.html'">Login</button>
 
             <div class="icons-container">
                 <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
@@ -39,19 +40,19 @@
 
     <main>
         <div class="background-overlay"></div>
-        <h1>Acesse o seu login ou cadastre-se!</h1>
+        <h1>Recuperação de Senha</h1>
 
-        <div class="login-container" style="margin-bottom: 10px;">
+        <div class="login-container" style="margin-bottom: 10px; height: 350px;">
             <div class="form-section">
-                <form>
-                    <label for="email">Email:</label>
-                    <input id="email" name="email" type="email">
+                <p style="margin-bottom: 20px;">
+                    Digite seu e-mail cadastrado para receber as instruções de recuperação.
+                </p>
+                <form onsubmit="recuperarSenha(event)">
+                    <label for="email-recuperacao">Email:</label>
+                    <input id="email-recuperacao" name="email" type="email" required>
 
-                    <label for="senha">Senha:</label>
-                    <input id="senha" name="senha" type="password">
-                    <a class="forgot-password" href="/src/app/pagina-login/esqueci-senha.html">Esqueci minha senha</a>
-                    <button class="btn-entrar" type="submit" onclick="entrar(event)">Entrar</button>
-                    <button class="btn-criar-conta" type="button" onclick="criarConta()">Criar conta</button>
+                    <button class="btn-entrar" type="submit" style="margin-top: 20px;">Enviar Instruções</button>
+                    <button class="btn-criar-conta" type="button" onclick="login()">Voltar para Login</button>
                 </form>
             </div>
 
@@ -65,14 +66,14 @@
     <div id="sidebar-menu" class="sidebar-menu">
         <div class="sidebar-header">
             <h3>Menu</h3>
-            <span class="btn-fechar" onclick="fecharMenu()">&times;</span> 
+            <span class="btn-fechar" onclick="fecharMenu()">&times;</span>
         </div>
         <div class="sidebar-content">
             <a href="/src/app/pagina-home/pagina-home.html">Início</a>
             <a href="/src/app/pagina-camisetas/pagina-camisetas.html">Camisetas</a>
             <a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">Social</a>
             <a href="/src/app/pagina-carrinho/pagina-carrinho.html">Meu Carrinho</a>
-            <hr> 
+            <hr>
             <a href="/src/app/pagina-login/pagina-login.html">Minha Conta</a>
         </div>
     </div>
@@ -80,4 +81,5 @@
     <script src="/src/js/auth.js"></script>
     <script src="/src/js/gerenciador.js"></script>
 </body>
+
 </html>
