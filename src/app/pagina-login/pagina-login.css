@@ -501,12 +501,12 @@ input[type="password"] {
         /* A imagem pode ser totalmente oculta ou ter uma altura reduzida */
         /* display: none; */ 
         height: 150px; /* Exibe a imagem, mas a deixa menor no topo */
-        order: 1; /* Faz a imagem ficar no topo do container */
+        order: 1;
     }
 
     .form-section {
-        order: 2; /* Faz o formulário ficar abaixo da imagem */
+        order: 2; 
         padding: 30px;
-        flex: none; /* Remove a flex-basis forçada */
+        flex: none; 
     }
 }

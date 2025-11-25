@@ -772,3 +772,118 @@ body {
     margin: 10px 30px;
     width: auto;
 }
+footer {
+    text-align: center;
+    background-color: #f6f6f6;
+    width: 100%;
+    padding: 50px 0 20px 0; /* Ajustado o padding para o novo design */
+    margin-top: 10%;
+    /* Removendo a centralização de texto global do rodapé antigo para controlar melhor */
+    text-align: left; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Distribui as colunas */
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo do rodapé */
+    padding: 0 20px 30px 20px;
+    flex-wrap: wrap; /* Garante quebras de linha em telas menores */
+    gap: 30px;
+}
+
+.footer-coluna {
+    width: 22%; /* Define a largura de cada coluna para caber 4 */
+    min-width: 180px; /* Garante que a coluna não fique muito estreita */
+}
+
+.footer-coluna h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-coluna h4 a {
+    /* Remove a decoração de link do título */
+    text-decoration: none; 
+    color: #333;
+    padding: 0;
+    font-size: 18px;
+    border-bottom: none;
+}
+
+.footer-coluna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Desfaz o flex-direction: row herdado e usa column */
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-coluna li a {
+    /* Estilo para links menores */
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #555;
+    padding: 0;
+    transition: color 0.2s;
+    border-bottom: none; /* Remove a borda inferior do link geral */
+}
+
+.footer-coluna li a:hover {
+    color: #000;
+}
+
+.footer-coluna p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.footer-coluna p a {
+    /* Estilo específico para o link de email */
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0;
+    border-bottom: none;
+}
+
+/* Ícones Sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons .icon-img {
+    width: 22px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.social-icons .icon-img:hover {
+    opacity: 1;
+}
+
+/* Linha de Direitos Autorais */
+.footer-copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footer-copyright hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px auto;
+}
+
+.footer-copyright p {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}

@@ -11,32 +11,32 @@
 <body>
     <div class="cabecalho">
         <header>
-    <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
+            <img src="/public/images/simons-logo.png" alt="logo da marca" style="width: 160px; margin-left: 50px;">
 
-    <nav>
-        <ul>
-            <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
-            <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
-        </ul>
-    </nav>
+            <nav>
+                <ul>
+                    <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">camisetas</a></li>
+                    <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">social</a></li>
+                </ul>
+            </nav>
 
-    <div class="header-right">
-        <button class="login-btn" onclick="login()">Login</button>
+            <div class="header-right">
+                <button class="login-btn" onclick="login()">Login</button>
 
-        <div class="icons-container">
-            <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
-            
-            <div class="search-box">
-                <input class="search-txt" type="text" placeholder="Buscar...">
-                <button class="search-btn">
-                    <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
-                </button>
+                <div class="icons-container">
+                    <img class="icon-img" src="/public/images/carrinho.png" alt="carrinho" onclick="irParaCarrinho()">
+                    
+                    <div class="search-box">
+                        <input class="search-txt" type="text" placeholder="Buscar...">
+                        <button class="search-btn">
+                            <img class="icon-img" src="/public/images/lupa.png" alt="lupa">
+                        </button>
+                    </div>
+
+                    <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
+                </div>
             </div>
-
-            <img class="icon-img" src="/public/images/tres-pontos.png" alt="menu">
-        </div>
-    </div>
-</header>
+        </header>
     </div>
 
     <section>
@@ -60,51 +60,57 @@
 
     <section>
         
-        <div class="img-canto">
-            <img class="img-camiseta" src="/public/images/simons.png" alt="imagem">
-            <img class="img-camiseta" src="/public/images/simons.png" alt="imagem">
-            <img class="img-camiseta" src="/public/images/simons.png" alt="imagem">
+        <div class="detalhes-produto"> 
+
+            <div class="galeria-imagens">
+                <div class="img-canto">
+                    <img class="img-camiseta" src="/public/images/simons.png" alt="imagem" onclick="trocarImagemPrincipal(this.src)">
+                    <img class="img-camiseta" src="/public/images/simons.png" alt="imagem" onclick="trocarImagemPrincipal(this.src)">
+                    <img class="img-camiseta" src="/public/images/simons.png" alt="imagem" onclick="trocarImagemPrincipal(this.src)">
+                    <img class="img-camiseta" src="/public/images/simons.png" alt="imagem" onclick="trocarImagemPrincipal(this.src)">
+                </div>
+
+                <div class="img-principal">
+                    <img class="camiseta" id="detalhe-imagem" src alt="imagem do produto">
+                </div>
+            </div>
+
+            <div class="info-opcoes">
+                <div class="textos-primeiros">
+                    <h3 id="detalhe-nome" class="nome-produto">...</h3>
+                    <h4 id="detalhe-preco" class="preco-produto">...</h4>
+
+                    <hr class="linha-secao">
+
+                    <p id="detalhe-descricao" class="descricao-produto">Camiseta feminina estampada confeccionada em malha de algodão com toque macio. A peça básica possui modelagem reta com caimento solto, mangas curtas e acabamento pespontado.</p>
+                </div>
+
+                <div class="cores-container">
+                    <pre>cores disponíveis:</pre>
+                    <div class="cores">
+                        <img class="camiseta-cores selecionada" src="/public/images/simons.png" alt="cor branca" onclick="selecionarCor(this)">
+                        <img class="camiseta-cores" src="/public/images/simons.png" alt="cor preta" onclick="selecionarCor(this)">
+                    </div>
+                </div>
+
+                <div class="tamanhos-container">
+                    <pre>escolha seu tamanho:</pre>
+                    <div class="tamanhos">
+                        <div class="fundo-tamanho" onclick="selecionarTamanho(this)"><h6>PP</h6></div>
+                        <div class="fundo-tamanho" onclick="selecionarTamanho(this)"><h6>P</h6></div>
+                        <div class="fundo-tamanho" onclick="selecionarTamanho(this)"><h6>M</h6></div>
+                        <div class="fundo-tamanho" onclick="selecionarTamanho(this)"><h6>G</h6></div>
+                        <div class="fundo-tamanho" onclick="selecionarTamanho(this)"><h6>GG</h6></div>
+                    </div>
+                </div>
+
+                <div class="botoes-container">
+                    <button class="botoes botao-comprar" onclick="pagamento()">Comprar</button>
+                    <button class="botoes botao-carrinho" onclick="carrinho()">Adicionar ao carrinho</button>
+                </div>
+            </div>
+            
         </div>
-
-        <div class="img-principal">
-             <img class="camiseta" id="detalhe-imagem" src alt="imagem do produto">
-        </div>
-
-        <div class="textos-primeiros">
-            <h3 id="detalhe-nome" style="font-size: 25px; margin-top: 5px;">...</h3>
-            <h4 id="detalhe-preco" style="margin-top: -15px; font-weight: 100;">...</h4>
-
-            <hr>
-
-            <p id="detalhe-descricao">Produto de alta qualidade, confeccionado com os melhores materiais para garantir conforto e estilo.</p>
-
-            <hr>
-            <pre>Cores disponiveis: </pre>
-        </div>
-
-        <div class="cores">
-            <img class="camiseta-cores" src="/public/images/alice-azul.png" alt="cor">
-            <img class="camiseta-cores" src="/public/images/alice-azul.png" alt="cor">
-        </div>
-
-        <div class="textos-secundarios">
-            <hr>
-            <pre>Escolha seu tamanho:</pre>
-        </div>
-
-        <div class="tamanhos">
-            <div class="fundo-tamanho"><h6>PP</h6></div>
-            <div class="fundo-tamanho"><h6>P</h6></div>
-            <div class="fundo-tamanho"><h6>M</h6></div>
-            <div class="fundo-tamanho"><h6>G</h6></div>
-            <div class="fundo-tamanho"><h6>GG</h6></div>
-        </div>
-
-        <div>
-            <button class="botoes" onclick="pagamento()" style="background-color: #e6fadd; box-shadow: 0 4px 8px #c8ddbf;">Comprar</button>
-            <button class="botoes" onclick="carrinho()">Adicionar ao carrinho</button>
-        </div>
-
     </section>
 
     <section>
@@ -139,7 +145,55 @@
         </div>
     </section>
 
-    <footer>@SIMONS | 2025</footer>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-coluna">
+                <h4><a href="#">Simons</a></h4>
+                <ul>
+                    <li><a href="/src/app/pagina-home/pagina-home.html">Início</a></li>
+                    <li><a href="/src/app/pagina-camisetas/pagina-camisetas.html">Camisetas</a></li>
+                    <li><a href="/src/app/pagina-social-cliente/pagina-social-cliente.html">Social</a></li>
+                    <li><a href="#">Novidades</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-coluna">
+                <h4><a href="#">Ajuda</a></h4>
+                <ul>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Fale Conosco (SAC)</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-coluna">
+                <h4><a href="#">Conta</a></h4>
+                <ul>
+                    <li><a href="/src/app/pagina-login/pagina-login.html">Login/Cadastro</a></li>
+                    <li><a href="/src/app/pagina-carrinho/pagina-carrinho.html">Meu Carrinho</a></li>
+                    <li><a href="#">Meus Pedidos</a></li>
+                    <li><a href="#">Preferências</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-coluna">
+                <h4><a href="#">Contato</a></h4>
+                <p>
+                    <a href="#">contato@simonsstore.com.br</a><br>
+                    (11) 99876-5432 (Atendimento)<br>
+                    Av. Programação, 101 - Bloco C <br>
+                    São Paulo/SP - Brasil
+                </p>
+                
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <hr>
+            <p>&copy; 2025 SIMONS | Todos os direitos reservados. Design por Parceiro de Programação.</p>
+        </div>
+    </footer>
     
     <div id="overlay-menu" class="menu-overlay" onclick="fecharMenu()"></div>
     <div id="sidebar-menu" class="sidebar-menu">
@@ -180,6 +234,7 @@
             const imgPrincipal = document.getElementById('detalhe-imagem');
             if(imgPrincipal) imgPrincipal.src = produto.imagem;
             
+            // ATENÇÃO: Os elementos de miniaturas de canto e de cor usam a mesma imagem para simplificação
             document.querySelectorAll('.img-camiseta, .camiseta-cores').forEach(img => img.src = produto.imagem);
             
             const tituloTopo = document.getElementById('detalhe-titulo-topo');
@@ -198,7 +253,7 @@
             window.location.href = "/src/app/pagina-camisetas/pagina-camisetas.html";
         }
 
-        // --- FUNÇÕES DOS BOTÕES (AQUI ESTÁ A CORREÇÃO) ---
+        // --- FUNÇÕES DOS BOTÕES E INTERAÇÃO ---
 
         function carrinho() {
             if (produtoAtual) {
@@ -215,6 +270,30 @@
                 // Redireciona para o carrinho
                 window.location.href = "/src/app/pagina-carrinho/pagina-carrinho.html";
             }
+        }
+        
+        // --- NOVAS FUNÇÕES DE INTERAÇÃO VISUAL ---
+
+        // Troca a imagem principal quando uma miniatura é clicada
+        function trocarImagemPrincipal(src) {
+            const imgPrincipal = document.getElementById('detalhe-imagem');
+            if(imgPrincipal) imgPrincipal.src = src;
+        }
+
+        // Adiciona/remove a borda de seleção na cor clicada
+        function selecionarCor(elemento) {
+            // Remove a classe 'selecionada' de todos os elementos de cor
+            document.querySelectorAll('.camiseta-cores').forEach(img => img.classList.remove('selecionada'));
+            // Adiciona a classe 'selecionada' ao elemento clicado
+            elemento.classList.add('selecionada');
+        }
+
+        // Adiciona/remove o fundo escuro de seleção no tamanho clicado
+        function selecionarTamanho(elemento) {
+            // Remove a classe 'selecionado' de todos os elementos de tamanho
+            document.querySelectorAll('.fundo-tamanho').forEach(div => div.classList.remove('selecionado'));
+            // Adiciona a classe 'selecionado' ao elemento clicado
+            elemento.classList.add('selecionado');
         }
     </script>
 </body>
